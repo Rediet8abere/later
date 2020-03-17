@@ -11,8 +11,8 @@ from . import views
 
 urlpatterns = [
     path('', BooksListView.as_view(), name='book-home'),
-    path('<int:pk>/', BooksDetailView.as_view(), name='book-detail'),
-    path('new/', BooksCreateView.as_view(), name='book-create'),
-    path('<int:pk>/update', BooksUpdateView.as_view(), name='book-update'),
-    path('<int:pk>/delete', BooksDeleteView.as_view(), name='book-delete'),
+    path('listApp/<int:pk>/', BooksDetailView.as_view(), name='book-detail'),
+    path('listApp/new/', BooksCreateView.as_view(), name='book-create'),
+    path('listApp/<int:pk>/update', BooksUpdateView.as_view(), name='book-update'),
+    path('listApp/<int:pk>/delete', BooksDeleteView.as_view(), name='book-delete'),
 ]
