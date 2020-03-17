@@ -5,3 +5,5 @@
   <h3>{{ object.author_last_name }}</h3>
   <h3>{{ object.list_pub_date }}</h3>
 </ul>
+<a href="{% url 'book-update' object.id %}">Edit</a>
+<a href="{% url 'book-delete' object.id %}">Delete</a>

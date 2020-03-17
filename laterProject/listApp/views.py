@@ -1,7 +1,9 @@
 from django.views.generic import (
     ListView,
     DetailView,
-    CreateView
+    CreateView,
+    UpdateView,
+    DeleteView
 )
 from django.template import loader
 from .models import Books
@@ -45,3 +47,14 @@ class BooksCreateView(CreateView):
 
     def form_vaild(self, form):
         return super().form_vaild(form)
+
+class BooksUpdateView(UpdateView):
+    model = Books
+    fields = ['author_first_name', 'author_last_name', 'book_title']
+
+    def form_vaild(self, form):
+        return super().form_vaild(form)
+
+class BooksDeleteView(DeleteView):
+    model = Books
+    success_url = '/listApp/'
