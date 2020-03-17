@@ -1,7 +1,7 @@
-{% if latest_book_list %}
+{% if booklist %}
     <ul>
-    {% for book in latest_book_list %}
-        <li><a href="/polls/{{ book.id }}/">{{ book.book_title }}</a></li>
+    {% for book in booklist %}
+        <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
