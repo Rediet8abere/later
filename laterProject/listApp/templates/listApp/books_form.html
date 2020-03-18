@@ -1,9 +1,9 @@
 <div class="content-section">
-        <form action="" method="POST">
+        <form action="" method="POST" id="post-book">
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4"> My Book List </legend>
-                {{ form }}
+                {{ form.as_p }}
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit" name="button">Save</button>
