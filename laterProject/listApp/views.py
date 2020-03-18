@@ -48,11 +48,7 @@ class BooksCreateView(CreateView):
 
     def form_vaild(self, form):
         return super().form_vaild(form)
-    #
-    # def post(self, request):
-    #     author_first_name = request.POST['author_first_name']
-    #     author_last_name = request.POST['author_last_name']
-    #     book_title = request.POST['book_title']
+
 
 class BooksUpdateView(UpdateView):
     model = Books
@@ -64,12 +60,3 @@ class BooksUpdateView(UpdateView):
 class BooksDeleteView(DeleteView):
     model = Books
     success_url = '/listApp/'
-
-def listen():
-    # return render_template('get_voice.html')
-    # Speech to text
-
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-        audio = r.listen(source)
-        print('audio', audio)

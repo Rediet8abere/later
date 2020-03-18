@@ -22,55 +22,36 @@ recognition.onresult = function(event) {
     console.log('command', command);
     console.log("d", d['text']);
     message.textContent = 'Voice Input: ' + command + '.';
+    document.getElementById('id_author_first_name').value=command;
+    document.getElementById('id_author_last_name').value=command;
+    document.getElementById('id_book_title').value=command;
+    // id_author_first_name.innerHTML = 'Voice Input: ' + command + '.';
+    // id_author_last_name.innerHTML = 'Voice Input: ';
+    // id_book_title.innerHTML = 'Voice Input: ';
 
-    $(document).on('submit', '#post-book',function(e){
-      e.preventDefault();
-      $.ajax({
-          type:'POST',
-          url:'{% url "listApp/new/" %}',
-          data: {
-              author_first_name: 'hi',   // converts js value to JSON string
-              author_last_name: 'Ortega',
-              book_title: 'Vintage'
-            },
-          success:function(json){
-              document.getElementById("post-book").reset();
-              // $(".posts").prepend('<div class="col-md-6">'+
-              //     '<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">' +
-              //         '<div class="col p-4 d-flex flex-column position-static">' +
-              //             '<h3 class="mb-0">' + json.author_first_name + '</h3>' +
-              //             '<p class="mb-auto">' + json.author_last_name + '</p>' +
-              //         '</div>' +
-              //     '</div>' +
-              // '</div>'
-              // )
-          },
-          error : function(xhr,errmsg,err) {
-          console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
-      }
-      });
-});
-    // $.ajax({
-    //
-    // // location.href = Flask.url_for('index', {});
-    //   type: 'POST',
-    //   url: '/listApp/new/',
-    //   data: {
-    //     author_first_name: 'hi',   // converts js value to JSON string
-    //     author_last_name: 'Ortega',
-    //     book_title: 'Vintage'
-    //   },
-    //   processData: true,
-    //   success:function(response)
-    //   {
-    //   }
-    //
-    //   })
-      // author_first_name = models.CharField(max_length=30)
-      //   author_last_name = models.CharField(max_length=30)
-      //   book_title = models.CharField(max_length=60)
-      //   list_pub_date = models.DateTimeField(default=timezone.now)
 
+//     $(document).on('submit', '#post-book',function(e){
+//       // e.preventDefault();
+//       // id_<field_name>
+//       // id_author_first_name
+//       // id_author_last_name
+//       // id_book_title
+//       $.ajax({
+//           type:'POST',
+//           url:'{% url "listApp/new/" %}',
+//           data: {
+//               author_first_name: 'hi',   // converts js value to JSON string
+//               author_last_name: 'Ortega',
+//               book_title: 'Vintage'
+//             },
+//           success:function(json){
+//               document.getElementById("post-book").reset();
+//           },
+//           error : function(xhr,errmsg,err) {
+//           console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+//       }
+//       });
+// });
 
 };
 
