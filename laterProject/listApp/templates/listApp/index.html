@@ -1,12 +1,34 @@
+{% extends 'base.html' %} {% load static  %}
+
+<!-- Custom CSS -->
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "listApp/main.css" %}">
+{% endblock css %}
+
+<!-- Title -->
+{% block title %} Later {% endblock title %}
+
+<!-- Nave Bar -->
+<div class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="index.html">Later</a>
+    <div class="brn-group" role="group">
+        <a class="btn btn-light" href="signout.html">Sign out</a>
+    </div>
+    </form>
+</div>
+
+<!-- Add to List-->
+<div class="container">
+    <a href="{% url 'book-create' %}">Add Book</a>
+    {% if booklist %}
+        <ul>
+        {% for book in booklist %}
+            <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books are available.</p>
+    {% endif %}
+</div>
 
 
-<a href="{% url 'book-create' %}">Add Book</a>
-{% if booklist %}
-    <ul>
-    {% for book in booklist %}
-        <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No books are available.</p>
-{% endif %}
