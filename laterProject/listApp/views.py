@@ -49,6 +49,9 @@ class BooksCreateView(CreateView):
     def form_vaild(self, form):
         return super().form_vaild(form)
 
+    # def get(self, request):
+    #     pass
+
 
 class BooksUpdateView(UpdateView):
     model = Books
@@ -59,4 +62,4 @@ class BooksUpdateView(UpdateView):
 
 class BooksDeleteView(DeleteView):
     model = Books
-    success_url = '/listApp/'
+    success_url = '/'
