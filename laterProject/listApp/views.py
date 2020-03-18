@@ -44,7 +44,7 @@ class BooksDetailView(DetailView):
 
 class BooksCreateView(CreateView):
     model = Books
-    fields = ['author_first_name', 'author_last_name', 'book_title']
+    fields = ['author_name','book_title']
 
     def form_vaild(self, form):
         return super().form_vaild(form)
@@ -52,7 +52,7 @@ class BooksCreateView(CreateView):
 
 class BooksUpdateView(UpdateView):
     model = Books
-    fields = ['author_first_name', 'author_last_name', 'book_title']
+    fields = ['author_name', 'book_title']
 
     def form_vaild(self, form):
         return super().form_vaild(form)

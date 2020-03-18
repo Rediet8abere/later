@@ -4,8 +4,8 @@ from django.urls import reverse
 
 
 class Books(models.Model):
-    author_first_name = models.CharField(max_length=30)
-    author_last_name = models.CharField(max_length=30)
+    author_name = models.CharField(max_length=30)
+    # author_last_name = models.CharField(max_length=30)
     book_title = models.CharField(max_length=60)
     list_pub_date = models.DateTimeField(default=timezone.now)
 

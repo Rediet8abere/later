@@ -22,8 +22,8 @@ recognition.onresult = function(event) {
     console.log('command', command);
     console.log("d", d['text']);
     message.textContent = 'Voice Input: ' + command + '.';
-    document.getElementById('id_author_first_name').value=command;
-    document.getElementById('id_author_last_name').value=command;
+    document.getElementById('id_author_name').value=command;
+    // document.getElementById('id_author_last_name').value=command;
     document.getElementById('id_book_title').value=command;
     // id_author_first_name.innerHTML = 'Voice Input: ' + command + '.';
     // id_author_last_name.innerHTML = 'Voice Input: ';
