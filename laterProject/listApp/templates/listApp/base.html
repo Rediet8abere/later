@@ -1,30 +1,41 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <!-- Custom css -->
+         <link rel="stylesheet" type = "text/css" href="../css/main.css">
         <!-- Bootstrap css -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <!-- Custom css -->
-        <link rel="stylesheet" type = "text/css" href="{% static 'css/main.css' %}">
         <!-- Google Fonts-->
+        <title>Later</title>
 
-        {% if title %}
-            <title>Later {{ title }}</title>
-        {% else %}
-            <title>Later</title>
-        {% endif %}
+        <style>
+            #slides {
+                width: 1200px;
+                height: 800px;
+                margin: auto;
+            }
+            .play-slide-indicators {
+                z-index: 1;
+                height:100%;
+                width: 100%;
+                display: flex; 
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center
+            }
+        </style>
     </head>
     <body>
         <!-- NAV BAR -->
         <nav class="navbar fixed-bottom navbar-dark bg-primary">
             <a class="navbar-brand" href="#!">Learn</a>
             <div role="group">
-                <a class="btn btn-light" class="nav-link" href="{% url 'about' %}">About</a>
-                <a class="btn btn-light" href="{% url 'createaccount' %}">Create Account</a>
-                <a class="btn btn-light" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-light" class="nav-link" href="about.html">About</a>
+                <a class="btn btn-light" href="create-acct.html">Create Account</a>
+                <a class="btn btn-light" href="login.html">Login</a>
             </div>
         </nav>
         <!-- IMAGE SLIDE -->
@@ -41,10 +52,62 @@
             <a href="#" class="play-previous-button"></a>    
         </div> 
         <!-- Javascript Slides-->
-        <script src="js/home.js"></script>
+        <script>
+            (function() {
+
+            const slides = document.getElementById('slides')
+            const slidesInner = slides.querySelector('.slides-inner')
+            const images = slidesInner.querySelectorAll('img')
+            const slideWidth = slides.clientWidth
+
+            const nextButton = slides.querySelector('.play-next-button')
+            const prevButton = slides.querySelector('.play-previous-button')
+
+            let index = 0
+
+            if (nextButton !== null) {
+                nextButton.addEventListener('click', function(e) {
+                    e.preventDefault()
+
+                    nextSlide()
+                })
+            }
+
+            if (prevButton !== null) {
+                prevButton.addEventListener('click', function(e) {
+                    e.preventDefault()
+
+                    prevSlide()
+                })
+            }
+
+            function nextSlide() {
+                index +=1 
+                if (index === images.length) {
+                    index = 0 
+                }
+                slidesInner.style.transform = `translate3d(${index * -slideWidth}px,0,0)`
+            }
+
+            function prevSlide() {
+                if(index < 0) {
+                    index = images.length -1
+                } else  {
+                    index -= 1
+                }
+                slidesInner.style.transform = `translate3d(${index * -slideWidth}px,0,0)`
+            }
+
+            setInterval(function() {
+                nextSlide()
+            }, 5000)
+
+
+            }) ()             
+        </script>
 
         <!-- Graphic -->
-        <script src="p5.min.js"></script>
+        <!-- <script src="p5.min.js"></script>
         <script src="vanta.trunk.min.js"></script>
         <script>
             VANTA.TRUNK({
@@ -60,6 +123,6 @@
             spacing: 2.50,
             chaos: 2.00
         })
-        </script>
+        </script> -->
     </body>
 </html>

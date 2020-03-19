@@ -2,17 +2,77 @@ body {
     background-color: orange;
 }
 
-#slides {
-    width: 1200px;
-    height: 800px;
-    margin: auto;
+.slide-layout {
+    position: relative;
+    top: -782px;
+    display: flex;
+    flex-direction: column;
 }
-.play-slide-indicators {
-    z-index: 1;
-    height:100%;
-    width: 100%;
-    display: flex; 
+
+.slide-layout-2 {
+    position: relative;
+    top: -1048px;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-caption {
+    display: flex;
+    height: 100%;
+    font-size: 20px;
+}
+
+.slides-inner {
+    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center
+    position: absolute;
+    transform: translate3d(0, 0, 0);
+    transition: 1000ms;
+}
+
+.play-slide-show {
+    overflow: hidden;
+    position: relative;
+}
+
+.play-next-button, .play-previous-button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;;
+    background-color:rgba(255,255,255,0.5);
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-next-button {
+    right: 1em;
+}
+
+.play-next-button::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 4px solid #fff;
+    border-right: 4px solid #fff;
+    transform: rotate(45deg);
+}
+
+.play-previous-button {
+    left: 1em;
+}
+
+.play-previous-button::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 4px solid #fff;
+    border-left: 4px solid #fff;
+    transform: rotate(45deg);
 }
