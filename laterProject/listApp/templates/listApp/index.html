@@ -1,3 +1,13 @@
+{% extends "listApp/base.html" %} {% load static %}
+
+<!-- Custom CSS -->
+<!-- {% block css %}
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+<link href="https://fonts.googleapis.com/css?family=Trade+Winds|Simonetta&display=swap" rel="stylesheet">
+{% endblock css %} -->
+
+<!-- Title -->
+{% block title %} Later {% endblock title %}
 
 <div class="container">
     <a href="{% url 'book-create' %}">Add Book</a>
