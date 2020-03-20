@@ -18,9 +18,8 @@ recognition.onresult = function(event) {
     var command = event.results[last][0].transcript;
     var d = {};
     d['text'] = command
-    message.textContent = 'Voice Input: ' + command + '.';
-    document.getElementById('id_author_name').value=command;
-    document.getElementById('id_book_title').value=command;
+    // message.textContent = 'Voice Input: ' + command + '.';
+    document.getElementById('id_book_title_or_author_name').value=command;
 
 };
 

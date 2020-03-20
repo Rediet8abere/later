@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 <div class="content-section">
         <form action="" method="POST" id="post-book">
             {% csrf_token %}
@@ -12,9 +13,11 @@
             </div>
         </form>
 </div>
+<button id='btnGiveCommand' type="button" class="btn btn-outline-secondary">Speak!</button>
+
 <div id="results"></div>
 
-<button id='btnGiveCommand' type="button" class="btn btn-outline-secondary">Speak!</button>
+
 
 <script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script>
 <!-- ajax -->
