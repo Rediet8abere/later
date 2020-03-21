@@ -1,17 +1,8 @@
+{% extends "listApp/base.html" %}
+{% load static %}
 
-  <!DOCTYPE html>
-  <html>
-      <head>
-          <!-- Required meta tags -->
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-           <!-- Custom css -->
-           <link rel="stylesheet" type = "text/css" href="css/main.css">
-          <!-- Bootstrap css -->
-          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-          <!-- Google Fonts-->
-          <title>Later</title> 
-   <a href="{% url 'book-create' %}">Add Book</a>
+<div class="container">
+    <a href="{% url 'book-create' %}">Add Book</a>
     {% if booklist %}
         <ul>
         {% for book in booklist %}
@@ -21,32 +12,6 @@
     {% else %}
         <p>No books are available.</p>
     {% endif %}
-</head>
-<body>
-    <!-- NAV BAR -->
-    <nav class="navbar fixed-bottom navbar-dark bg-primary">
-        <a class="navbar-brand" href="#!">Learn</a>
-        <div role="group">
-            <a class="btn btn-light" class="nav-link" href="about.html">About</a>
-            <a class="btn btn-light" href="create-acct.html">Create Account</a>
-            <a class="btn btn-light" href="login.html">Login</a>
-        </div>
-    </nav>
-    <!-- IMAGE SLIDE -->
-    <div id="slides" class="play-slide-show" data-delay="3000" data-transition="400">
-        <div class="slides-inner">
-            <div class="slide-item ">
-                <img src="#" width="1200" height="auto" alt="image1">
-            </div>
-            <div class="slide-item">
-                <img src="#" width="1200" height="auto" at="image2">
-            </div>
-        </div>
-        <a href="#" class="play-next-button"></a>
-        <a href="#" class="play-previous-button"></a>    
-    </div> 
-
-</body>
-</html>
+</div>
 
 
