@@ -22,8 +22,11 @@ function bookSearch(e){
         results.innerHTML += "<h2>" + "Published Date: " + data.items[i].volumeInfo.publishedDate + "</h2>";
         results.innerHTML += "<h2>" + "Publisher: " + data.items[i].volumeInfo.publisher + "</h2>";
         results.innerHTML += "<h2>" + "Description: " + data.items[i].volumeInfo.description + "</h2>";
+
+        // var cleanString = .replace(/[|&;$%@"<>()+,]/g, "");
+        var cleanString = data.items[i].volumeInfo.description.replace(/'/g, '');
         // creating a button
-        results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.title + "\")'>Add</button>";
+        results.innerHTML += "<button type='button' onclick='selectBook(\"" + cleanString + "\")'>Add</button>";
 
 
       }
