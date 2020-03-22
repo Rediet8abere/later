@@ -22,17 +22,14 @@ function bookSearch(e){
         results.innerHTML += "<h2>" + "Published Date: " + data.items[i].volumeInfo.publishedDate + "</h2>";
         results.innerHTML += "<h2>" + "Publisher: " + data.items[i].volumeInfo.publisher + "</h2>";
         results.innerHTML += "<h2>" + "Description: " + data.items[i].volumeInfo.description + "</h2>";
-        console.log("result not string----------");
-        console.log(data.items[i]);
         var result_string = JSON.stringify(data.items[i]);
-        console.log("result_string>>>>>>>");
-        console.log(result_string);
-        console.log("result to string ++++++++++++++");
-        console.log(data.items[i].toString());
 
         // creating a button
-        results.innerHTML += "<button type='button' onclick='selectBook(" + result_string + ")'>Add</button>";
-
+        results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.description + "\")'>Add</button>";
+        console.log("logging data");
+        console.log(data);
+        console.log("logging data items");
+        console.log(data.items[i]);
 
 
       }
@@ -43,11 +40,10 @@ function bookSearch(e){
 
 document.getElementById('save-btn').addEventListener("click", bookSearch)
 
-function selectBook(data) {
+function selectBook(title) {
   console.log("Hello World");
   console.log("accepting data");
-  console.log(data);
-  data_parsed = JSON.parse(data)
+  console.log(title);
 
   function getCookie(name) {
 
@@ -67,7 +63,7 @@ function selectBook(data) {
   }
 
   var csrftoken = getCookie('csrftoken');
-  var jsonString = JSON.stringify(data_parsed);
+  var jsonString = JSON.stringify(title);
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "/listApp/new/", true);
   xhttp.responseType = "json";
