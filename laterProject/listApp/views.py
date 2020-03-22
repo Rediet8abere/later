@@ -11,7 +11,8 @@ from django.shortcuts import get_object_or_404, render
 import requests
 import json
 # import json as simplejson
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 # from django.views.decorators.csrf import csrf_exempt
 
 booklist = [
@@ -62,8 +63,8 @@ class BooksCreateView(CreateView):
             print(jsonData)
             book = Books(book_title_or_author_name=jsonData)
             book.save(force_insert=True)
-            # return_data = simplejson.dumps(request.body)
             return HttpResponse(jsonData)
+            return HttpResponseRedirect(reverse('listApp:book-home'))
 
 class BooksUpdateView(UpdateView):
     model = Books

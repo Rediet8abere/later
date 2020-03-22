@@ -9,12 +9,12 @@
                 {{ field.auto_id }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit" name="button" id='save-btn'>Save</button>
+                <button class="btn btn-outline-info" type="submit" name="button" id='save-btn'>Look it up!</button>
             </div>
         </form>
 </div>
 <button id='btnGiveCommand' type="button" class="btn btn-outline-secondary">Speak!</button>
-
+<a href="{% url 'book-home' %}">Book List</a>
 <div id="results"></div>
 
 
