@@ -28,7 +28,7 @@
                 border: solid;
                 border-width: 1px;
                 border-color: white;
-                background-color:white;
+                background-color:rgb(255, 255, 255);
             }
 
             .group {
@@ -60,13 +60,6 @@
                 background-color: white;
             }
 
-            /* a {
-                color: rgb(64, 0, 255);
-                font-size: 30px;
-                position: relative;
-                left: 70px;
-            } */
-            
             a.two:visited {color:rgb(31, 28, 28);}
             a.two:hover {
                 text-decoration:none;
@@ -76,24 +69,22 @@
                 height: 659px;
                 width: 900px;
                 position: relative;
-                /* left: 50px; */
                 font-family: 'Quicksand', sans-serif;
             }
 
             li {
-                color: white;
-                font-size: 30px;
+                font-size: 47px;
                 position: relative;
                 left: 100px;
-                /* top: 300px; */
+                top: 90px;
+                display: inline; 
             }
-
+            
             .container2 {
                 height: 700px;
                 width: 900px;
                 position: relative;
                 left: 300px;
-                /* top: 150px; */
                 font-family: 'Quicksand', sans-serif;
             }
 
@@ -284,7 +275,7 @@
                     <div class="slide-item ">
                         <div class="container">
                             {% if booklist %}
-                                <ul>
+                                <ul id= "horizontal-list">
                                 {% for book in booklist %}
                                     <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
                                 {% endfor %}
@@ -297,7 +288,7 @@
                     <div class="slide-item">
                             <div class="container2">
                             {% if booklist %}
-                                <ul>
+                                <ul id= "horizontal-list">
                                 {% for book in booklist %}
                                     <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
                                 {% endfor %}
@@ -406,6 +397,7 @@
             );
             });
         </script>
+
             <!-- Add A Book JS -->
         <script>
             anime.timeline({loop: true})
