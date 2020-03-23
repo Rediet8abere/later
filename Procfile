@@ -1,1 +1,1 @@
-web: gunicorn laterProject.laterProject.wsgi
+web: gunicorn laterProject.wsgi --log-file -
