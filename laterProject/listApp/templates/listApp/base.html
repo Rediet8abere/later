@@ -21,7 +21,7 @@
             
             #slides {
                 position: relative;
-                top: 200px;
+                top: 50px;
                 width: 1200px;
                 height: 800px;
                 margin: auto;
@@ -40,10 +40,10 @@
 
             p {
                 font-family: 'Merriweather', serif;
-                font-size: 90px;
+                font-size: 70px;
                 position: relative;
-                left: 1066px;
-                top: 170px;
+                left: 845px;
+                top: 60px;
                 color: white;
                 text-shadow: 2px 2px #ff0000;
             }
@@ -52,17 +52,24 @@
                 font-family: 'Berkshire Swash', cursive;
                 font-size: 200px;
                 color: red;
+                position:relative;
+                left: 60px;
             }
 
             .navbar {
                 background-color: white;
             }
 
-            a {
-                color: black;
+            /* a {
+                color: rgb(64, 0, 255);
                 font-size: 30px;
                 position: relative;
                 left: 70px;
+            } */
+            
+            a.two:visited {color:rgb(31, 28, 28);}
+            a.two:hover {
+                text-decoration:none;
             }
 
             .container {
@@ -187,6 +194,71 @@
                 border-radius: 100%;
                 opacity: 0.7;
             }
+
+            h2.ml8 {
+                font-weight: 900;
+                font-size: 4.5em;
+                color: #fff;
+                width: 3em;
+                height: 3em;
+                }
+
+            .ml8 .letters-container {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+                height: 1em;
+            }
+
+            .ml8 .letters {
+                position: relative;
+                z-index: 2;
+                display: inline-block;
+                line-height: 0.7em;
+                right: -0.12em;
+                top: -0.2em;
+            }
+
+            .ml8 .bang {
+                font-size: 1.4em;
+                top: auto;
+                left: -0.06em;
+            }
+
+            .ml8 .circle {
+                position: absolute;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+            }
+
+            .ml8 .circle-white {
+                width: 3em;
+                height: 3em;
+                border: 2px dashed white;
+                border-radius: 2em;
+            }
+
+            .ml8 .circle-dark {
+                width: 2.2em;
+                height: 2.2em;
+                background-color: #4f7b86;
+                border-radius: 3em;
+                z-index: 1;
+            }
+
+            .ml8 .circle-dark-dashed {
+                border-radius: 2.4em;
+                background-color: transparent;
+                border: 2px dashed #4f7b86;
+                width: 2.3em;
+                height: 2.3em;
+            }
         </style>
     </head>
     <body>
@@ -194,7 +266,14 @@
         <nav class="navbar fixed-bottom">
             <a class="navbar-brand" href="#!">Later</a>
             <div class="group">
-                <a href="{% url 'book-create' %}">Add Book</a>
+                <h2 class="ml8">
+                <span class="letters-container">
+                <span class="letters letters-left"><a class= "two" href="{% url 'book-create' %}">Add Book</a></span>
+                </span>
+                <span class="circle circle-white"></span>
+                <span class="circle circle-white"></span>
+                <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
             </div>
         </nav>
         <!-- IMAGE SLIDE -->
@@ -204,7 +283,6 @@
                 <div class="slides-inner">
                     <div class="slide-item ">
                         <div class="container">
-                            <!-- <a href="{% url 'book-create' %}">Add Book</a> -->
                             {% if booklist %}
                                 <ul>
                                 {% for book in booklist %}
@@ -218,7 +296,6 @@
                     </div>
                     <div class="slide-item">
                             <div class="container2">
-                            <!-- <a href="{% url 'book-create' %}">Add Book</a> -->
                             {% if booklist %}
                                 <ul>
                                 {% for book in booklist %}
@@ -327,6 +404,55 @@
                 easing: "ease-in-out"
                 }
             );
+            });
+        </script>
+            <!-- Add A Book JS -->
+        <script>
+            anime.timeline({loop: true})
+            .add({
+                targets: '.ml8 .circle-white',
+                scale: [0, 3],
+                opacity: [1, 0],
+                easing: "easeInOutExpo",
+                rotateZ: 360,
+                duration: 1100
+            }).add({
+                targets: '.ml8 .circle-container',
+                scale: [0, 1],
+                duration: 1100,
+                easing: "easeInOutExpo",
+                offset: '-=1000'
+            }).add({
+                targets: '.ml8 .circle-dark',
+                scale: [0, 1],
+                duration: 1100,
+                easing: "easeOutExpo",
+                offset: '-=600'
+            }).add({
+                targets: '.ml8 .letters-left',
+                scale: [0, 1],
+                duration: 1200,
+                offset: '-=550'
+            }).add({
+                targets: '.ml8 .bang',
+                scale: [0, 1],
+                rotateZ: [45, 15],
+                duration: 1200,
+                offset: '-=1000'
+            }).add({
+                targets: '.ml8',
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1400
+            });
+
+            anime({
+            targets: '.ml8 .circle-dark-dashed',
+            rotateZ: 360,
+            duration: 8000,
+            easing: "linear",
+            loop: true
             });
         </script>
     </body>
