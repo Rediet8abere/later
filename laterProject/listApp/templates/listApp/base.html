@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% load static %}
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap css -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        {% block style %}
-         <!-- Custom css -->
-         <link rel="stylesheet" type = "text/css" href="css/main.css">
-        {% endblock %}
-
         <title>Later</title>
 
         <style>
@@ -28,6 +22,81 @@
                 flex-direction: row;
                 justify-content: space-between;
                 align-items: center
+            }
+
+            .slide-layout {
+            position: relative;
+            top: -782px;
+            display: flex;
+            flex-direction: column;
+            }
+
+            .slide-layout-2 {
+                position: relative;
+                top: -1048px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .carousel-caption {
+                display: flex;
+                height: 100%;
+                font-size: 20px;
+            }
+
+            .slides-inner {
+                display: flex;
+                flex-direction: row;
+                position: absolute;
+                transform: translate3d(0, 0, 0);
+                transition: 1000ms;
+            }
+
+            .play-slide-show {
+                overflow: hidden;
+                position: relative;
+            }
+
+            .play-next-button, .play-previous-button {
+                display: block;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;;
+                background-color:rgba(255,255,255,0.5);
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                display:flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .play-next-button {
+                right: 1em;
+            }
+
+            .play-next-button::after {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-top: 4px solid #fff;
+                border-right: 4px solid #fff;
+                transform: rotate(45deg);
+            }
+
+            .play-previous-button {
+                left: 1em;
+            }
+
+            .play-previous-button::after {
+                content: '';
+                display: block;
+                width: 10px;
+                height: 10px;
+                border-bottom: 4px solid #fff;
+                border-left: 4px solid #fff;
+                transform: rotate(45deg);
             }
         </style>
     </head>
