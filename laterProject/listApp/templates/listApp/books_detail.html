@@ -2,10 +2,10 @@
 <a href="{% url 'book-home' %}">Book List</a>
 <ul>
   <h2>{{ object.book_title_or_author_name }}</h2>
-  <h3>{{ object.list_pub_date }}</h3>
+  <!-- <h3>{{ object.list_pub_date }}</h3> -->
 </ul>
 
 
 
 <a href="{% url 'book-update' object.id %}">Edit</a>
-<a href="{% url 'book-delete' object.id %}">Delete</a>
+<a href="{% url 'book-delete' object.id %}">Remove from List</a>
