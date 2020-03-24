@@ -22,14 +22,14 @@ function bookSearch(e){
         results.innerHTML += "<h2>" + "Published Date: " + data.items[i].volumeInfo.publishedDate + "</h2>";
         results.innerHTML += "<h2>" + "Publisher: " + data.items[i].volumeInfo.publisher + "</h2>";
         results.innerHTML += "<h2>" + "Description: " + data.items[i].volumeInfo.description + "</h2>";
-<<<<<<< HEAD
+// <<<<<<< HEAD
 
         // var cleanString = .replace(/[|&;$%@"<>()+,]/g, "");
-        var cleanString = data.items[i].volumeInfo.description.replace(/'/g, '');
+        // var cleanString = data.items[i].volumeInfo.description.replace(/'/g, '');
         // creating a button
-        results.innerHTML += "<button type='button' onclick='selectBook(\"" + cleanString + "\")'>Add</button>";
-=======
-        var result_string = JSON.stringify(data.items[i]);
+        // results.innerHTML += "<button type='button' onclick='selectBook(\"" + cleanString + "\")'>Add</button>";
+// =======
+        // var result_string = JSON.stringify(data.items[i]);
 
         // creating a button
         results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.description + "\")'>Add</button>";
@@ -37,7 +37,7 @@ function bookSearch(e){
         console.log(data);
         console.log("logging data items");
         console.log(data.items[i]);
->>>>>>> developer
+// >>>>>>> developer
 
 
       }
