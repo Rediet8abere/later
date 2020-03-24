@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath="$PWD/laterProject" laterProject.wsgi:application --log-file=-
+web: gunicorn laterProject.wsgi:application
