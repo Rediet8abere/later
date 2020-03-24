@@ -64,7 +64,6 @@ class BooksCreateView(CreateView):
             book = Books(book_title_or_author_name=jsonData)
             book.save(force_insert=True)
             return HttpResponse(jsonData)
-            return HttpResponseRedirect(reverse('listApp:book-home'))
 
 class BooksUpdateView(UpdateView):
     model = Books
