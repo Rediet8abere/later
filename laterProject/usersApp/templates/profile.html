@@ -1,3 +1,5 @@
+{% extends 'listApp/base.html' %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,22 +16,28 @@
         </nav>
 
         <!-- Profile -->
-        <div class="container">
-            <div class="card">
-                <!--Profile User Photo-->
+        {% block content %}
+        <div class="content-section">
+            <div class="media">
+                <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+                <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+                </div>
             </div>
-        <div class="player-info">
-            <!--User Name, etc-->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Profile Info:</legend>
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
         </div>
-        <div class="buttons-browse">
-        <div class="button-saved-games">
-        <!-- Start a New List -->
-            <a class="card-btn btn-light" href="#">Start New List</a>
-        </div>
-        <div class="button-resume-game">
-        <!-- Save Item to Current List -->
-            <a class="card-btn btn-light" href="#">Save to Current List</a>
-        </div>
-        </div>
+        {% endblock content %}
+       
     </body>
 </html>
