@@ -1,8 +1,100 @@
-<a href="{% url 'book-home' %}">Book List</a>
-<ul>
-  <h2>{{ object.book_title }}</h2>
-  <h3>{{ object.author_name }}</h3>
-  <h3>{{ object.list_pub_date }}</h3>
-</ul>
-<a href="{% url 'book-update' object.id %}">Edit</a>
-<a href="{% url 'book-delete' object.id %}">Delete</a>
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap css -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+      <title>Later- Book</title>
+
+      <style>
+        body {
+          background-color: rgb(250, 213, 199);
+
+        }
+
+        .details{
+          border: solid;
+          border-width: 1px;
+          border-color: white;
+          background-color: rgb(255, 255, 255);
+          height: 800px;
+          width: 1500px;
+          position: relative;
+          left: 680px;
+          top: 400px;
+          font-size: 50px;
+          font-family: 'Quicksand', sans-serif;
+        }
+
+        .detail-name {
+          font-size: 200px;
+          position: relative;
+          left: 30px;
+          top: 0px;
+          border:solid;
+          border-width: 1px;
+        }
+
+        .detail-name:hover { 
+          text-decoration: none;
+        }
+
+        .detail-delete {
+          position: relative;
+          left: 1030px;
+          top: 80px;
+          border:solid;
+          border-width: 1px;
+        }
+
+        .detail-delete:hover { 
+          text-decoration: none;
+        }
+
+        .detail-edit {
+          position: relative;
+          font-size: 160px;
+          left: 999px;
+          top: 60px;
+          border:solid;
+          border-width: 1px;
+        }
+
+        .detail-edit:hover { 
+          text-decoration: none;
+        }
+
+        h2, h3, h4 {
+          font-size: 30px;
+          position: relative;
+          top: 30px;
+          /* border: solid;
+          border-color: rgb(255, 3, 234); */
+          width: 500px;
+          height: 50px;
+          border-width: 1px;
+        }
+      
+      </style>
+
+      <body>
+        <div class= "details">
+          <a class="detail-name" href="{% url 'book-home' %}">Book List</a>
+          <ul>
+            <h2>Book Title: {{ object.book_title }}</h2>
+            <h3>Author Name: {{ object.author_name }}</h3>
+            <h3>{{ object.list_pub_date }}</h3>
+          </ul>
+          <a class= "detail-edit" href="{% url 'book-update' object.id %}">Edit</a>
+          <a class= "detail-delete" href="{% url 'book-delete' object.id %}">Delete</a>
+        </div>
+      </body>
+
+      
