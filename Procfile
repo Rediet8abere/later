@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath laterProject.laterProject.wsgi
+web: gunicorn --pythonpath laterProject laterProject.wsgi
