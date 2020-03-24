@@ -1,5 +1,5 @@
 {% extends "listApp/base.html" %}
-{% load static %}
+
 <div class="container">
     <a href="{% url 'book-create' %}">Add Book</a>
     {% if booklist %}
@@ -12,3 +12,5 @@
         <p>No books are available.</p>
     {% endif %}
 </div>
+
+
