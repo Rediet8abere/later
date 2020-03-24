@@ -10,6 +10,7 @@
       <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Martel:wght@800&display=swap" rel="stylesheet">
 
       <title>Later- Book</title>
 
@@ -36,7 +37,7 @@
           font-size: 150px;
           position: relative;
           left: 30px;
-          top: 0px;
+          top: 30px;
           border:solid;
           border-width: 1px;
         }
@@ -47,8 +48,8 @@
 
         .detail-delete {
           position: relative;
-          left: 1030px;
-          top: 170px;
+          left: 1098px;
+          top: 10px;
           border:solid;
           border-width: 1px;
         }
@@ -60,8 +61,8 @@
         .detail-edit {
           position: relative;
           font-size: 120px;
-          left: 999px;
-          top: 160px;
+          left: 1060px;
+          top: 0px;
           border:solid;
           border-width: 1px;
         }
@@ -70,15 +71,20 @@
           text-decoration: none;
         }
 
-        h2, h3, h4 {
-          font-size: 30px;
+        h2, h3 {
+          font-size: 50px;
           position: relative;
           top: 30px;
-          /* border: solid;
-          border-color: rgb(255, 3, 234); */
-          width: 500px;
-          height: 50px;
+          left: 150px;
           border-width: 1px;
+        }
+
+        h4 {
+          font-size: 20px;
+          position: relative;
+          top: 100px;
+          left: 100px;
+          color: red;
         }
         
         .ball {
@@ -86,15 +92,25 @@
           border-radius: 100%;
           opacity: 8;
         }
+
+        .book-info {
+          position: relative;
+          left: 100px;
+          top: 60px;
+          font-family: 'Martel', serif;
+        }
+        
       </style>
 
       <body>
         <div class= "details">
           <a class="detail-name" href="{% url 'book-home' %}">Book List</a>
           <ul>
-            <h2>Book Title: {{ object.book_title }}</h2>
-            <h3>Author Name: {{ object.author_name }}</h3>
-            <h3>{{ object.list_pub_date }}</h3>
+            <p class= "book-info">Book Title:</p>
+            <h2>{{ object.book_title }}</h2>
+            <p class= "book-info">Author's Name:</p>
+            <h3>{{ object.author_name }}</h3>
+            <h4>{{ object.list_pub_date }}</h4>
           </ul>
           <a class= "detail-edit" href="{% url 'book-update' object.id %}">Edit</a>
           <a class= "detail-delete" href="{% url 'book-delete' object.id %}">Delete</a>

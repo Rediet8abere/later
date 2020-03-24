@@ -33,14 +33,16 @@
           font-family: 'Quicksand', sans-serif;
         }
 
-        .border {
-          font-size: 90px;
+        .border1 {
+          font-size: 99px;
+          font-family: 'Martel', serif;
           position: relative;
           left: 60px;
           top: 0px;
         }
         
         h2 {
+            font-size: 40px;
             position: relative;
             left: 200px;
             top: 80px;
@@ -49,8 +51,10 @@
         .btn {
             font-size: 50px;
             position: relative;
-            top: 400px;
-            left: 990px;
+            top: 340px;
+            left: 999px;
+            background-color: aliceblue;
+
         }
 
         .ball {
@@ -65,7 +69,8 @@
             <form action="" method="POST">
                 {% csrf_token %}
                 <fieldset class="form-group">
-                    <legend class="border"> Delete Item</legend>
+                    <legend class="border1">No longer want this in your list?</legend>
+                    <hr>
                     <h2>deleting .....'{{ object.book_title }}'</h2>
                 </fieldset>
                 <div class="form-group">
