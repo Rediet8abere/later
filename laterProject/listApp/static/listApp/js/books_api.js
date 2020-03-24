@@ -73,9 +73,9 @@ function selectBook(title) {
   var csrftoken = getCookie('csrftoken');
   var jsonString = JSON.stringify(title);
   var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "/listApp/new/", true);
+  // xhttp.open("POST", "/listApp/new/", true);
   xhttp.responseType = "json";
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.setRequestHeader("X-CSRFToken", csrftoken);
-  xhttp.send(jsonString);
+  // xhttp.send(jsonString);
 }
