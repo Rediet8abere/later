@@ -1,13 +1,127 @@
-<div class="content-section">
-        <form action="" method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4"> Delete List </legend>
-                <h2>deleting .....'{{ object.book_title_or_author_name }}'</h2>
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit" name="button">Delete</button>
-                <a class="btn btn-outline-info" href="{% url 'book-detail' object.id %}">Cancel</a>
-            </div>
-        </form>
-    </div>
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap css -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+
+      <title>Later- Book</title>
+
+      <style>
+        body {
+            background-color: rgb(250, 213, 199);
+        }
+
+        .content-section {
+          border: solid;
+          border-width: 1px;
+          border-color: white;
+          background-color: rgb(255, 255, 255);
+          height: 800px;
+          width: 1500px;
+          position: relative;
+          left: 680px;
+          top: 400px;
+          font-size: 50px;
+          font-family: 'Quicksand', sans-serif;
+        }
+
+        .border1 {
+          font-size: 100px;
+          font-family: 'Martel', serif;
+          position: relative;
+          left: 60px;
+          top: 0px;
+        }
+        
+        h2 {
+            font-size: 40px;
+            position: relative;
+            left: 200px;
+            top: 80px;
+        }
+
+        .btn {
+            font-size: 60px;
+            position: relative;
+            top: 340px;
+            left: 970px;
+            background-color: aliceblue;
+        }
+
+        .ball {
+          position: absolute;
+          border-radius: 100%;
+          opacity: 8;
+        }
+      </style>
+    </head>
+    <body>
+        <div class="content-section">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border1">No longer want this in your list?</legend>
+                    <hr>
+                    <h2>deleting .....'{{ object.book_title }}'</h2>
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit" name="button">Delete</button>
+                    <a class="btn btn-outline-info" href="{% url 'book-detail' object.id %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- JS Background -->
+        <script>
+            const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+
+            const numBalls = 50;
+            const balls = [];
+
+            for (let i = 0; i < numBalls; i++) {
+            let ball = document.createElement("div");
+            ball.classList.add("ball");
+            ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+            ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+            ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+            ball.style.transform = `scale(${Math.random()})`;
+            ball.style.width = `${Math.random()}em`;
+            ball.style.height = ball.style.width;
+            
+            balls.push(ball);
+            document.body.append(ball);
+            }
+
+            balls.forEach((el, i, ra) => {
+            let to = {
+                x: Math.random() * (i % 2 === 0 ? -11 : 11),
+                y: Math.random() * 12
+            };
+
+            let anim = el.animate(
+                [
+                { transform: "translate(0, 0)" },
+                { transform: `translate(${to.x}rem, ${to.y}rem)` }
+                ],
+                {
+                duration: (Math.random() + 1) * 2000, 
+                direction: "alternate",
+                fill: "both",
+                iterations: Infinity,
+                easing: "ease-in-out"
+                }
+            );
+            });
+        </script>
+    </body>
+    </html>
+
+

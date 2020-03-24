@@ -1,9 +1,11 @@
+{% extends 'listApp/base.html' %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>Later- Login</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="listApp/main.css">
+        <link rel="stylesheet" href="/listApp/main.css">
     </head>
 
     <body>
@@ -12,18 +14,26 @@
             <a class="navbar-brand" href="index.html">Later</a>
             </form>
         </div>
-
         <!-- Login Form -->
-        <div class="container">
-            <h1>Welcome back!</h1>
-            <div class="sign-in-container">
-                <label for="username">Username</label>
-                <input type="text" placeholder="Enter Username" name="username" requred>
-                <label for="password">Password</label>
-                <input type="text" placeholder="Enter password" name="password" requred>
-                <a class="btn btn-light" href="profile.html">Login</a>
-                <label> <input type="checkbox" checked="checked" name="remember">Remember me</label>
+        {% block content %}
+            <div class="content-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Log In</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Login</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Need An Account?
+                        <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+                    </small>
+                </div>
             </div>
-        </div>         
+        {% endblock content %}       
     </body>
 </html>
