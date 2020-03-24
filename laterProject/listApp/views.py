@@ -11,29 +11,9 @@ from django.shortcuts import get_object_or_404, render
 import requests
 import json
 # import json as simplejson
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 # from django.views.decorators.csrf import csrf_exempt
-
-booklist = [
-    {
-    'author_first_name':'Toni',
-    'author_last_name':'Morrison',
-    'book_title': 'Beloved',
-    'list_pub_date':'March 16 2020'
-    },
-    {
-    'author_first_name':'Haruki',
-    'author_last_name':'Murakami',
-    'book_title': '1Q84',
-    'list_pub_date':'March 16 2020'
-    }
-]
-
-# def index(request):
-#     context = {
-#         'booklist': Books.objects.all()
-#     }
-#     return render(request, 'listApp/index.html', context)
 
 class BooksListView(ListView):
 
@@ -62,7 +42,6 @@ class BooksCreateView(CreateView):
             print(jsonData)
             book = Books(book_title_or_author_name=jsonData)
             book.save(force_insert=True)
-            # return_data = simplejson.dumps(request.body)
             return HttpResponse(jsonData)
 
 class BooksUpdateView(UpdateView):

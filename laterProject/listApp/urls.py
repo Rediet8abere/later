@@ -8,7 +8,7 @@ from .views import (
 )
 
 from . import views
-
+# app_name = 'listApp'
 urlpatterns = [
     path('', BooksListView.as_view(), name='book-home'),
     path('listApp/<int:pk>/', BooksDetailView.as_view(), name='book-detail'),
