@@ -1,1 +1,1 @@
-web: gunicorn laterProject.wsgi:application
+web: gunicorn --chdir laterProject laterProject.wsgi
