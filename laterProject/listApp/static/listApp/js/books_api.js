@@ -22,22 +22,13 @@ function bookSearch(e){
         results.innerHTML += "<h2>" + "Published Date: " + data.items[i].volumeInfo.publishedDate + "</h2>";
         results.innerHTML += "<h2>" + "Publisher: " + data.items[i].volumeInfo.publisher + "</h2>";
         results.innerHTML += "<h2>" + "Description: " + data.items[i].volumeInfo.description + "</h2>";
-// <<<<<<< HEAD
-
-        // var cleanString = .replace(/[|&;$%@"<>()+,]/g, "");
-        // var cleanString = data.items[i].volumeInfo.description.replace(/'/g, '');
-        // creating a button
-        // results.innerHTML += "<button type='button' onclick='selectBook(\"" + cleanString + "\")'>Add</button>";
-// =======
-        // var result_string = JSON.stringify(data.items[i]);
-
-        // creating a button
-        results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.description + "\")'>Add</button>";
+        // console.log();
+        results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.description.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,"") + "\")'>Add</button>";
         console.log("logging data");
         console.log(data);
         console.log("logging data items");
         console.log(data.items[i]);
-// >>>>>>> developer
+
 
 
       }
