@@ -23,13 +23,19 @@ function bookSearch(e){
         results.innerHTML += "<h2>" + "Publisher: " + data.items[i].volumeInfo.publisher + "</h2>";
         results.innerHTML += "<h2>" + "Description: " + data.items[i].volumeInfo.description + "</h2>";
         var result_string = JSON.stringify(data.items[i]);
+        var cleaned_string = JSON.stringify(data);
+        console.log("cleaned_string........");
+        console.log(cleaned_string);
+        console.log("excecuting************");
+        selectBookTwo(result_string);
+
 
         // creating a button
-        results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.description + "\")'>Add</button>";
-        console.log("logging data");
-        console.log(data);
-        console.log("logging data items");
-        console.log(data.items[i]);
+        results.innerHTML += "<button type='button' id='add-btn''>Add</button>";
+        // console.log("logging data");
+        // console.log(data);
+        // console.log("logging data items");
+        // console.log(data.items[i]);
 
 
       }
@@ -39,6 +45,12 @@ function bookSearch(e){
 }
 
 document.getElementById('save-btn').addEventListener("click", bookSearch)
+document.getElementById('add-btn').addEventListener("click", selectBookTwo)
+
+function selectBookTwo(data) {
+  console.log("data in book two");
+  console.log(data);
+}
 
 function selectBook(title) {
   console.log("Hello World");
