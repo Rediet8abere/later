@@ -290,7 +290,7 @@
     </head>
     <body>
         <!-- NAV BAR -->
-        <nav class="navbar fixed-bottom">
+        <nav class="navbar">
             <a class="navbar-brand" href="#!">Later</a>
             <div class="group">
                 <h2 class="ml8">
@@ -308,41 +308,42 @@
         <p> Your saved items: </p>
         <div class="gallery">
             <div class="gallery-container">
+                    {% if booklist %}
+                    {% for book in booklist %}
                     <div class="gallery-item">
-                        {% if booklist %}
-                        <ul>
-                        {% for book in booklist %}
                             <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
-                        {% endfor %}
-                        </ul>
-                        {% else %}
-                            <p>No books are available.</p>
-                        {% endif %}
                     </div>
+<<<<<<< HEAD
                     <img class="gallery-item" src="2.jpg">
                     <img class="gallery-item" src="3.jpg">
                     <img class="gallery-item" src="4.jpg">
                     <img class="gallery-item" src="5.jpg">
+=======
+                    {% endfor %}
+                {% else %}
+                        <p>No books are available.</p>
+                {% endif %}
+>>>>>>> sandy-camilo
             </div>
             <div class="gallery-controls"></div>
         </div>
 
         <!-- Gallery JS -->
-        <script>
+    <script>
         const galleryContainer = document.querySelector('.gallery-container');
         const galleryControlsContainer = document.querySelector('.gallery-controls');
         const galleryControls = ['previous', 'next'];
         const galleryItems = document.querySelectorAll('.gallery-item');
         
         class Carousel {
-          constructor(container, items, controls) {
+            constructor(container, items, controls) {
             this.carouselContainer = container;
             this.carouselControls = controls;
             this.carouselArray = [...items];
-          }
+            }
         
-          // Assign initial css classes for gallery and nav items
-          setInitialState() {
+            // Assign initial css classes for gallery and nav items
+            setInitialState() {
             this.carouselArray[0].classList.add('gallery-item-first');
             this.carouselArray[1].classList.add('gallery-item-previous');
             this.carouselArray[2].classList.add('gallery-item-selected');
@@ -354,88 +355,88 @@
             document.querySelector('.gallery-nav').childNodes[2].className = 'gallery-nav-item gallery-item-selected';
             document.querySelector('.gallery-nav').childNodes[3].className = 'gallery-nav-item gallery-item-next';
             document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
-          }
+            }
         
-          // Update the order state of the carousel with css classes
-          setCurrentState(target, selected, previous, next, first, last) {
+            // Update the order state of the carousel with css classes
+            setCurrentState(target, selected, previous, next, first, last) {
         
             selected.forEach(el => {
-              el.classList.remove('gallery-item-selected');
+                el.classList.remove('gallery-item-selected');
         
-              if (target.className == 'gallery-controls-previous') {
+                if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-next');
-              } else {
+                } else {
                 el.classList.add('gallery-item-previous');
-              }
+                }
             });
         
             previous.forEach(el => {
-              el.classList.remove('gallery-item-previous');
+                el.classList.remove('gallery-item-previous');
         
-              if (target.className == 'gallery-controls-previous') {
+                if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-selected');
-              } else {
+                } else {
                 el.classList.add('gallery-item-first');
-              }
+                }
             });
         
             next.forEach(el => {
-              el.classList.remove('gallery-item-next');
+                el.classList.remove('gallery-item-next');
         
-              if (target.className == 'gallery-controls-previous') {
+                if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-last');
-              } else {
+                } else {
                 el.classList.add('gallery-item-selected');
-              }
+                }
             });
         
             first.forEach(el => {
-              el.classList.remove('gallery-item-first');
+                el.classList.remove('gallery-item-first');
         
-              if (target.className == 'gallery-controls-previous') {
+                if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-previous');
-              } else {
+                } else {
                 el.classList.add('gallery-item-last');
-              }
+                }
             });
         
             last.forEach(el => {
-              el.classList.remove('gallery-item-last');
+                el.classList.remove('gallery-item-last');
         
-              if (target.className == 'gallery-controls-previous') {
+                if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-first');
-              } else {
+                } else {
                 el.classList.add('gallery-item-next');
-              }
+                }
             });
-          }
+            }
         
-          // Construct the carousel navigation
-          setNav() {
+            // Construct the carousel navigation
+            setNav() {
             galleryContainer.appendChild(document.createElement('ul')).className = 'gallery-nav';
         
             this.carouselArray.forEach(item => {
-              const nav = galleryContainer.lastElementChild;
-              nav.appendChild(document.createElement('li'));
+                const nav = galleryContainer.lastElementChild;
+                nav.appendChild(document.createElement('li'));
             }); 
-          }
+            }
         
-          // Construct the carousel controls
-          setControls() {
+            // Construct the carousel controls
+            setControls() {
             this.carouselControls.forEach(control => {
-              galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
+                galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
             }); 
         
             !!galleryControlsContainer.childNodes[0] ? galleryControlsContainer.childNodes[0].innerHTML = this.carouselControls[0] : null;
             !!galleryControlsContainer.childNodes[1] ? galleryControlsContainer.childNodes[1].innerHTML = this.carouselControls[1] : null;
-          }
-         
-          // Add a click event listener to trigger setCurrentState method to rearrange carousel
-          useControls() {
+            }
+            
+            // Add a click event listener to trigger setCurrentState method to rearrange carousel
+            useControls() {
             const triggers = [...galleryControlsContainer.childNodes];
         
             triggers.forEach(control => {
-              control.addEventListener('click', () => {
+                control.addEventListener('click', () => {
                 const target = control;
                 const selectedItem = document.querySelectorAll('.gallery-item-selected');
                 const previousSelectedItem = document.querySelectorAll('.gallery-item-previous');
@@ -444,9 +445,9 @@
                 const lastCarouselItem = document.querySelectorAll('.gallery-item-last');
         
                 this.setCurrentState(target, selectedItem, previousSelectedItem, nextSelectedItem, firstCarouselItem, lastCarouselItem);
-              });
+                });
             });
-          }
+            }
         }
         
         const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
@@ -456,6 +457,7 @@
         exampleCarousel.setInitialState();
         exampleCarousel.useControls();
     </script>
+
     <!-- JS Background -->
     <script>
         const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];

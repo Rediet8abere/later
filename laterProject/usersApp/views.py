@@ -13,7 +13,11 @@
 #             return redirect('login')
 #     else:
 #         form = UserRegisterForm()
+<<<<<<< HEAD
 #     return render(request, 'usersApp/register.html', {'form': form})
+=======
+#     return render(request, 'users/register.html', {'form': form})
+>>>>>>> sandy-camilo
 
 # @login_required
 # def profile(request):
@@ -34,4 +38,8 @@
 #         'p_form': p_form
 #     }
 
+<<<<<<< HEAD
 #     return render(request, 'usersApp/profile.html', context)
+=======
+#     return render(request, 'users/profile.html', context)
+>>>>>>> sandy-camilo
