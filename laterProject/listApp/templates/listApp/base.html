@@ -15,6 +15,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@700&display=swap" rel="stylesheet">
+
+        {% block head %}
+        {% endblock %}
+
         <title>Later</title>
 
 
@@ -34,6 +38,17 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
             </div>
         </nav>
+
+        <div class="gallery">
+            <div class="gallery-container">
+                    <img class="gallery-item" src="2.jpg">
+                    <img class="gallery-item" src="3.jpg">
+                    <img class="gallery-item" src="4.jpg">
+                    <img class="gallery-item" src="5.jpg">
+
+            </div>
+            <div class="gallery-controls"></div>
+        </div>
         {% block content %}
         {% endblock %}
 
@@ -60,7 +75,7 @@
         </div> -->
 
     <!-- custom script -->
-    <script src="{% static 'listApp/js/base.css' %}"></script>
+    <!-- <script src="{% static 'listApp/js/base.js' %}"></script> -->
     </body>
 
 </html>
