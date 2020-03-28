@@ -1,0 +1,77 @@
+body {
+   background-color: rgb(250, 213, 199);
+}
+
+.content-section {
+   border: solid;
+   border-width: 1px;
+   border-color: white;
+   background-color: rgb(255, 255, 255);
+   height: 500px;
+   width: 1000px;
+   position: relative;
+   left: 180px;
+   top: 50px;
+   font-size: 50px;
+   font-family: 'Quicksand', sans-serif;
+}
+
+.border-bottom {
+   font-family: 'Merriweather', serif;
+   font-size: 100px;
+   height: 200px;
+   width: 400px;
+   position: relative;
+   left: 99px;
+   top: 100px;
+   text-shadow: 3px 2px left;
+}
+
+.form-input {
+   position: relative;
+   left: 560px;
+   top: -40px;
+   border:solid;
+   border-width: 1px;
+}
+
+.btn {
+   background-color: rgb(166, 234, 255);
+   font-size: 30px;
+   color:blue;
+   position: relative;
+   left: 1240px;
+   top: 139px;
+}
+
+#btnGiveCommand {
+   background-color: white;
+   font-size: 80px;
+   position: relative;
+   left: 650px;
+   top: 210px;
+   font-family: 'Quicksand', sans-serif;
+}
+
+small {
+   font-size: 20px;
+   position: relative;
+   left:1270px;
+   top: 280px;
+}
+
+.ball {
+   position: absolute;
+   border-radius: 100%;
+   opacity: 8;
+}
+
+.look {
+  position: relative;
+  left:100px;
+}
+
+.instruc {
+  position: relative;
+  left:100px;
+}
