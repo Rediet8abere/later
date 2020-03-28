@@ -1,8 +1,7 @@
 {% load static %}
-<<<<<<< HEAD
 {% csrf_token %}
-{% block content %}
-  <div class="content-section">
+<!-- {% block content %} -->
+  <!-- <div class="content-section">
           <form action="" method="POST" id="post-book">
               {% csrf_token %}
               <fieldset class="form-group">
@@ -17,22 +16,20 @@
   </div>
   <button id='btnGiveCommand' type="button" class="btn btn-outline-secondary">Speak!</button>
   <a href="{% url 'book-home' %}">Book List</a>
-  <div id="results"></div>
+  <div id="results"></div> -->
 
 
 
-<<<<<<< HEAD
-<script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script>
+<!-- <script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script> -->
 <!-- ajax -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="{% static 'listApp/js/books_api.js' %}"></script>
-=======
-  <script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script>
+  <script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script> -->
   <!-- ajax -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="{% static 'listApp/js/books_api.js' %}"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="{% static 'listApp/js/books_api.js' %}"></script> -->
 
-{% endblock %}
+<!-- {% endblock %} -->
 >>>>>>> developer
 =======
 <!DOCTYPE html>
@@ -55,7 +52,7 @@
              body {
                 background-color: rgb(250, 213, 199);
             }
-            
+
             .content-section {
                 border: solid;
                 border-width: 1px;
@@ -165,7 +162,7 @@
             ball.style.transform = `scale(${Math.random()})`;
             ball.style.width = `${Math.random()}em`;
             ball.style.height = ball.style.width;
-            
+
             balls.push(ball);
             document.body.append(ball);
             }
@@ -182,7 +179,7 @@
                 { transform: `translate(${to.x}rem, ${to.y}rem)` }
                 ],
                 {
-                duration: (Math.random() + 1) * 2000, 
+                duration: (Math.random() + 1) * 2000,
                 direction: "alternate",
                 fill: "both",
                 iterations: Infinity,
@@ -196,6 +193,6 @@
         <script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script>
     </body>
     </html>
-    
-    
+
+
 >>>>>>> 3b7afe5bf6d8f4ac7582e5a49a43a6b4318ad1f7

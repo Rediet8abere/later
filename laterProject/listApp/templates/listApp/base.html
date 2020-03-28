@@ -1,27 +1,4 @@
-<<<<<<< HEAD
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    {% block content %} {% endblock %}
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
-</html>
-=======
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,7 +34,7 @@
                 color:white;
                 text-shadow: 2px 2px red;
             }
-            
+
             li {
                 position: relative;
                 top: 10px;
@@ -337,17 +314,14 @@
                     <div class="gallery-item">
                             <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
                     </div>
-<<<<<<< HEAD
                     <img class="gallery-item" src="2.jpg">
                     <img class="gallery-item" src="3.jpg">
                     <img class="gallery-item" src="4.jpg">
                     <img class="gallery-item" src="5.jpg">
-=======
                     {% endfor %}
                 {% else %}
                         <p>No books are available.</p>
                 {% endif %}
->>>>>>> sandy-camilo
             </div>
             <div class="gallery-controls"></div>
         </div>
@@ -358,14 +332,14 @@
         const galleryControlsContainer = document.querySelector('.gallery-controls');
         const galleryControls = ['previous', 'next'];
         const galleryItems = document.querySelectorAll('.gallery-item');
-        
+
         class Carousel {
             constructor(container, items, controls) {
             this.carouselContainer = container;
             this.carouselControls = controls;
             this.carouselArray = [...items];
             }
-        
+
             // Assign initial css classes for gallery and nav items
             setInitialState() {
             this.carouselArray[0].classList.add('gallery-item-first');
@@ -373,60 +347,60 @@
             this.carouselArray[2].classList.add('gallery-item-selected');
             this.carouselArray[3].classList.add('gallery-item-next');
             this.carouselArray[4].classList.add('gallery-item-last');
-        
+
             document.querySelector('.gallery-nav').childNodes[0].className = 'gallery-nav-item gallery-item-first';
             document.querySelector('.gallery-nav').childNodes[1].className = 'gallery-nav-item gallery-item-previous';
             document.querySelector('.gallery-nav').childNodes[2].className = 'gallery-nav-item gallery-item-selected';
             document.querySelector('.gallery-nav').childNodes[3].className = 'gallery-nav-item gallery-item-next';
             document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
             }
-        
+
             // Update the order state of the carousel with css classes
             setCurrentState(target, selected, previous, next, first, last) {
-        
+
             selected.forEach(el => {
                 el.classList.remove('gallery-item-selected');
-        
+
                 if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-next');
                 } else {
                 el.classList.add('gallery-item-previous');
                 }
             });
-        
+
             previous.forEach(el => {
                 el.classList.remove('gallery-item-previous');
-        
+
                 if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-selected');
                 } else {
                 el.classList.add('gallery-item-first');
                 }
             });
-        
+
             next.forEach(el => {
                 el.classList.remove('gallery-item-next');
-        
+
                 if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-last');
                 } else {
                 el.classList.add('gallery-item-selected');
                 }
             });
-        
+
             first.forEach(el => {
                 el.classList.remove('gallery-item-first');
-        
+
                 if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-previous');
                 } else {
                 el.classList.add('gallery-item-last');
                 }
             });
-        
+
             last.forEach(el => {
                 el.classList.remove('gallery-item-last');
-        
+
                 if (target.className == 'gallery-controls-previous') {
                 el.classList.add('gallery-item-first');
                 } else {
@@ -434,31 +408,31 @@
                 }
             });
             }
-        
+
             // Construct the carousel navigation
             setNav() {
             galleryContainer.appendChild(document.createElement('ul')).className = 'gallery-nav';
-        
+
             this.carouselArray.forEach(item => {
                 const nav = galleryContainer.lastElementChild;
                 nav.appendChild(document.createElement('li'));
-            }); 
+            });
             }
-        
+
             // Construct the carousel controls
             setControls() {
             this.carouselControls.forEach(control => {
                 galleryControlsContainer.appendChild(document.createElement('button')).className = `gallery-controls-${control}`;
-            }); 
-        
+            });
+
             !!galleryControlsContainer.childNodes[0] ? galleryControlsContainer.childNodes[0].innerHTML = this.carouselControls[0] : null;
             !!galleryControlsContainer.childNodes[1] ? galleryControlsContainer.childNodes[1].innerHTML = this.carouselControls[1] : null;
             }
-            
+
             // Add a click event listener to trigger setCurrentState method to rearrange carousel
             useControls() {
             const triggers = [...galleryControlsContainer.childNodes];
-        
+
             triggers.forEach(control => {
                 control.addEventListener('click', () => {
                 const target = control;
@@ -467,15 +441,15 @@
                 const nextSelectedItem = document.querySelectorAll('.gallery-item-next');
                 const firstCarouselItem = document.querySelectorAll('.gallery-item-first');
                 const lastCarouselItem = document.querySelectorAll('.gallery-item-last');
-        
+
                 this.setCurrentState(target, selectedItem, previousSelectedItem, nextSelectedItem, firstCarouselItem, lastCarouselItem);
                 });
             });
             }
         }
-        
+
         const exampleCarousel = new Carousel(galleryContainer, galleryItems, galleryControls);
-        
+
         exampleCarousel.setControls();
         exampleCarousel.setNav();
         exampleCarousel.setInitialState();
@@ -498,7 +472,7 @@
         ball.style.transform = `scale(${Math.random()})`;
         ball.style.width = `${Math.random()}em`;
         ball.style.height = ball.style.width;
-        
+
         balls.push(ball);
         document.body.append(ball);
         }
@@ -515,7 +489,7 @@
             { transform: `translate(${to.x}rem, ${to.y}rem)` }
             ],
             {
-            duration: (Math.random() + 1) * 2000, 
+            duration: (Math.random() + 1) * 2000,
             direction: "alternate",
             fill: "both",
             iterations: Infinity,
@@ -576,4 +550,3 @@
     </script>
     </body>
 </html>
->>>>>>> 3b7afe5bf6d8f4ac7582e5a49a43a6b4318ad1f7

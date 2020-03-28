@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-{% block content %}
+<!-- {% block content %}
   <div class="content-section">
           <form action="" method="POST">
               {% csrf_token %}
@@ -13,8 +12,7 @@
               </div>
           </form>
       </div>
-{% endblock %}
-=======
+{% endblock %} -->
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -57,7 +55,7 @@
           left: 60px;
           top: 0px;
         }
-        
+
         h2 {
             font-size: 40px;
             position: relative;
@@ -112,7 +110,7 @@
             ball.style.transform = `scale(${Math.random()})`;
             ball.style.width = `${Math.random()}em`;
             ball.style.height = ball.style.width;
-            
+
             balls.push(ball);
             document.body.append(ball);
             }
@@ -129,7 +127,7 @@
                 { transform: `translate(${to.x}rem, ${to.y}rem)` }
                 ],
                 {
-                duration: (Math.random() + 1) * 2000, 
+                duration: (Math.random() + 1) * 2000,
                 direction: "alternate",
                 fill: "both",
                 iterations: Infinity,
@@ -140,6 +138,3 @@
         </script>
     </body>
     </html>
-
-
->>>>>>> 3b7afe5bf6d8f4ac7582e5a49a43a6b4318ad1f7
