@@ -1,12 +1,29 @@
 {% extends "listApp/base.html" %}
 {% load static %}
+<<<<<<< HEAD
 {% block content %}
+=======
+
+<div class="container">
+    <a href="{% url 'book-create' %}">Add Book</a>
+        {% if booklist %}
+            <ul>
+            {% for book in booklist %}
+                <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No books are available.</p>
+        {% endif %}
+</div>
+>>>>>>> 3b7afe5bf6d8f4ac7582e5a49a43a6b4318ad1f7
 
     {% if booklist %}
         <ul>
           <!-- Page Content -->
             <div class="container">
 
+<<<<<<< HEAD
               <!-- Page Heading -->
               <h1 class="my-4">Page Heading
                 <small><a href="{% url 'book-create' %}">Add Book</a></small>
@@ -74,3 +91,5 @@
   <!-- Custom css -->
   <link rel="stylesheet" type = "text/css" href="{% static 'listApp/css/main.css' %}">
 {% endblock %}
+=======
+>>>>>>> 3b7afe5bf6d8f4ac7582e5a49a43a6b4318ad1f7
