@@ -1,0 +1,21 @@
+{% if response %}
+    <ul>
+    {% for r in response %}
+        {{ r.artist.name }}
+        <br>
+        <img src="{{ r.artist.picture }}" alt="" width="500" height="500">
+        <br>
+        {{ r.id }}
+        {{ r.title }}
+        <a href="{{ r.preview }}"> Link </a>
+        <br>
+
+        <!-- <div class="tenor-gif-embed" data-postid="{{ r.id }}" data-share-method="host" data-width="500px"
+          data-aspect-ratio="1.2266666666666666">
+
+      </div> -->
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Working progress.</p>
+{% endif %}
