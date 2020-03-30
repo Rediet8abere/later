@@ -8,7 +8,7 @@ from django.views.generic import (
 )
 from django.template import loader
 from .models import Books
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 import requests
 import json
 # import json as simplejson
@@ -33,20 +33,25 @@ class BooksDetailView(DetailView):
 class BooksCreateView(CreateView):
     model = Books
     fields = ['book_title_or_author_name']
+    # template_name = 'listApp/books.html'
+    print("In create view")
 
     def form_vaild(self, form):
         return super().form_vaild(form)
 
     def post(self, request):
+        print("posting data to the server")
         if request.method == 'POST':
-            print("preparing to post")
-            print(request.body)
-            jsonData = json.loads(request.body)
-            print("loading .....")
-            print(jsonData)
-            book = Books(book_title_or_author_name=jsonData)
+            book = Books(book_title_or_author_name=request.POST['title'])
+            print(request.POST['title'])
             book.save(force_insert=True)
-            return HttpResponse(jsonData)
+            return  HttpResponseRedirect("/listApp/books")
+            # return redirect('books')
+            # context = {'response': data["data"]}
+            # return render(request, 'listApp/index.html', {'booklist': book})
+    def get(self, request):
+        if request.method == 'GET':
+            pass
 
 class BooksUpdateView(UpdateView):
     model = Books
@@ -86,18 +91,14 @@ def book_api_view(request):
     url = "https://www.googleapis.com/books/v1/volumes?q=beloved"
     # querystring =  {"q":"Beyonc%C3%A9"}
     # data.items[i].volumeInfo.title
-    response = requests.request("GET", url)
-    print(type(response))
-    print(response.json())
+    if request.method == 'GET':
+        print("in get")
+        response = requests.request("GET", url)
+        print(type(response))
+        print(response.json())
 
-    data = response.json()
+        data = response.json()
 
-    context = {'response': data['items']}
+        context = {'response': data['items']}
 
-    return render(request, 'listApp/books.html', context)
-
-
-    if response.status_code == 200:
-        return HttpResponse('Yay, it worked')
-    else:
-        return HttpResponse('Working progress')
+        return render(request, 'listApp/books.html', context)

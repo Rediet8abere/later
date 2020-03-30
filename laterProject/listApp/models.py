@@ -10,7 +10,7 @@ class Books(models.Model):
     list_pub_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.book_title
+        return self.book_title_or_author_name
 
     def get_absolute_url(self):
         return reverse('book-detail', kwargs={'pk':self.pk})

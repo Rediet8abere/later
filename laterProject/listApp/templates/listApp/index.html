@@ -3,13 +3,10 @@
 
 
 {% block content %}
-
+    <a href="{% url 'home' %}">Home</a>
     {% if booklist %}
-      <div class="container">
-
-
         {% for book in booklist %}
-            <div class="row">
+            <div style="display:flex; flex-direction:row" class="row">
               <div class="col-lg-4 mb-2">
                 <div class="card h-80">
                   <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
