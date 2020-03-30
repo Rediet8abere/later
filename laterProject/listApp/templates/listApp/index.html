@@ -1,15 +1,14 @@
 {% extends "listApp/base.html" %}
 {% load static %}
+
+
 {% block content %}
 
     {% if booklist %}
-      <!-- Page Content -->
       <div class="container">
 
 
         {% for book in booklist %}
-
-
             <div class="row">
               <div class="col-lg-4 mb-2">
                 <div class="card h-80">
@@ -24,18 +23,13 @@
                   </div>
                 </div>
               </div>
-
             </div>
             {% endfor %}
-            <!-- /.row -->
           </div>
-          <!-- /.container -->
-          <!-- /.row -->
 
     {% else %}
         <p>No books are available.</p>
     {% endif %}
 
-  <!-- Custom css -->
-  <link rel="stylesheet" type = "text/css" href="{% static 'listApp/css/main.css' %}">
+
 {% endblock %}

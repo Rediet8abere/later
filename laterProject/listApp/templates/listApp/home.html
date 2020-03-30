@@ -1,0 +1,38 @@
+{% extends "listApp/base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" type = "text/css" href="{% static 'listApp/css/main.css' %}"> -->
+{% block content %}
+
+  <h1>Hello World</h1>
+  <div class="article-list">
+    <!-- Books -->
+    <div class="article-box">
+    <a href="{% url 'book-create' %}">
+    <!-- <img class="article-image" src="example.jpeg" alt="" width="150" height="150"/> -->
+    <span class="article-box-text"><span>Book World</span></span>
+    </a>
+    </div>
+
+    <!-- Music -->
+    <div class="article-box">
+    <a href="{% url 'book-create' %}">
+    <!-- <img class="article-image" src="example.jpeg" alt="" width="150" height="150"/> -->
+    <span class="article-box-text"><span>Music</span></span>
+    </a>
+    </div>
+
+    <!-- Podcast -->
+    <div class="article-box">
+    <a href="{% url 'book-create' %}">
+    <!-- <img class="article-image" src="example.jpeg" alt="" width="150" height="150"/> -->
+    <span class="article-box-text"><span>Podcast</span></span>
+    </a>
+    </div>
+
+  </div>
+
+{% endblock %}

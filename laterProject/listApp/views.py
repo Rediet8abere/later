@@ -3,7 +3,8 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
+    TemplateView
 )
 from django.template import loader
 from .models import Books
@@ -15,6 +16,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 # from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+
+class HomeView(TemplateView):
+    template_name = "listApp/home.html"
 
 class BooksListView(ListView):
 
