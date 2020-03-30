@@ -28,7 +28,6 @@ class BooksListView(ListView):
     ordering = ['-list_pub_date']
 
 class BooksDetailView(DetailView):
-
     model = Books
 
 class BooksCreateView(CreateView):
@@ -61,37 +60,42 @@ class BooksDeleteView(DeleteView):
     success_url = '/'
 
 
-url = "https://deezerdevs-deezer.p.rapidapi.com/search"
-
-querystring =  {"q":"Beyonc%C3%A9"}
 
 
-headers = {
-    'x-rapidapi-host': "deezerdevs-deezer.p.rapidapi.com",
-    'x-rapidapi-key': "197b9992b3mshf84e47cf0693477p123b73jsnb27522c04ca3"
-    }
+def music_api_view(request):
+    url = "https://deezerdevs-deezer.p.rapidapi.com/search"
 
-def call_api_view(request):
-    # api_call_response = requests.get('url')
-    # json_response = api_call_response.json()
+    querystring =  {"q":"Beyonc%C3%A9"}
+
+
+    headers = {
+        'x-rapidapi-host': "deezerdevs-deezer.p.rapidapi.com",
+        'x-rapidapi-key': "197b9992b3mshf84e47cf0693477p123b73jsnb27522c04ca3"
+        }
+
     response = requests.request("GET", url, headers=headers, params=querystring)
     print(type(response))
     print(response.json())
-    # res = json.loads(response)
-    # print('res')
-    # print(res)
-    # print(json_response)
-    # jsonData = json.loads(request.body)
-    # json_string = json.dumps(response)
-    # print("json string")
-    # print(json_string)
+
     data = response.json()
     context = {'response': data["data"]}
-    #
-    # response = JsonResponse({'status':'false','message':message}, status=500)
-    # print(response.text)
-    # return JsonResponse(response)
+
     return render(request, 'listApp/music.html', context)
+
+def book_api_view(request):
+    url = "https://www.googleapis.com/books/v1/volumes?q=beloved"
+    # querystring =  {"q":"Beyonc%C3%A9"}
+    # data.items[i].volumeInfo.title
+    response = requests.request("GET", url)
+    print(type(response))
+    print(response.json())
+
+    data = response.json()
+
+    context = {'response': data['items']}
+
+    return render(request, 'listApp/books.html', context)
+
 
     if response.status_code == 200:
         return HttpResponse('Yay, it worked')

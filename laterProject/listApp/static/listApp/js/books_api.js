@@ -23,7 +23,14 @@ function bookSearch(e){
         results.innerHTML += "<h2>" + "Publisher: " + data.items[i].volumeInfo.publisher + "</h2>";
         results.innerHTML += "<h2>" + "Description: " + data.items[i].volumeInfo.description + "</h2>";
         // console.log();
-        results.innerHTML += "<button type='button' onclick='selectBook(\"" + data.items[i].volumeInfo.description.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,"") + "\")'>Add</button>";
+        arrResult = [
+          data.items[i].volumeInfo.title.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,""),
+          data.items[i].volumeInfo.authors.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,""),
+          data.items[i].volumeInfo.imageLinks.thumbnail.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,""),
+          data.items[i].volumeInfo.publishedDate.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,""),
+          data.items[i].volumeInfo.publisher.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,""),
+          data.items[i].volumeInfo.description.replace(/(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/g,"")]
+        results.innerHTML += "<button type='button' onclick='selectBook(\"" + arrResult + "\")'>Add</button>";
         console.log("logging data");
         console.log(data);
         console.log("logging data items");

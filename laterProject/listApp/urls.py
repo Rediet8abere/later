@@ -16,6 +16,7 @@ urlpatterns = [
     path('listApp/new/', BooksCreateView.as_view(), name='book-create'),
     path('listApp/<int:pk>/update', BooksUpdateView.as_view(), name='book-update'),
     path('listApp/<int:pk>/delete', BooksDeleteView.as_view(), name='book-delete'),
-    path('listApp/apitest/', views.call_api_view, name='api')
+    path('listApp/music/', views.music_api_view, name='music'),
+    path('listApp/books/', views.book_api_view, name='books')
 
 ]
