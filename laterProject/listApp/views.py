@@ -49,9 +49,7 @@ class BooksCreateView(CreateView):
             # return redirect('books')
             # context = {'response': data["data"]}
             # return render(request, 'listApp/index.html', {'booklist': book})
-    def get(self, request):
-        if request.method == 'GET':
-            pass
+
 
 class BooksUpdateView(UpdateView):
     model = Books
@@ -68,37 +66,43 @@ class BooksDeleteView(DeleteView):
 
 
 def music_api_view(request):
-    url = "https://deezerdevs-deezer.p.rapidapi.com/search"
 
-    querystring =  {"q":"Beyonc%C3%A9"}
+    if request.method == 'GET':
+        context = {'list_name': 'Music Club'}
+        return render(request, 'listApp/searchList.html', context)
 
+    if request.method == 'POST':
+        search_term = request.POST['querystring']
+        print(type(search_term))
+        url = "https://deezerdevs-deezer.p.rapidapi.com/search"
+        querystring =  {"q":search_term}
+        headers = {
+            'x-rapidapi-host': "deezerdevs-deezer.p.rapidapi.com",
+            'x-rapidapi-key': "197b9992b3mshf84e47cf0693477p123b73jsnb27522c04ca3"
+            }
+        response = requests.request("GET", url, headers=headers, params=querystring )
+        data = response.json()
+        context = {'response': data["data"], 'list_name': 'Music Club'}
 
-    headers = {
-        'x-rapidapi-host': "deezerdevs-deezer.p.rapidapi.com",
-        'x-rapidapi-key': "197b9992b3mshf84e47cf0693477p123b73jsnb27522c04ca3"
-        }
-
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    print(type(response))
-    print(response.json())
-
-    data = response.json()
-    context = {'response': data["data"]}
-
-    return render(request, 'listApp/music.html', context)
+        # return render(request, 'listApp/music.html', context)
+        return render(request, 'listApp/searchList.html', context)
 
 def book_api_view(request):
     url = "https://www.googleapis.com/books/v1/volumes?q=beloved"
     # querystring =  {"q":"Beyonc%C3%A9"}
     # data.items[i].volumeInfo.title
     if request.method == 'GET':
-        print("in get")
-        response = requests.request("GET", url)
-        print(type(response))
-        print(response.json())
+        context = {'list_name': 'Book World'}
+        return render(request, 'listApp/searchList.html', context)
+
+    if request.method == 'POST':
+        search_term = request.POST['querystring']
+        response = requests.request("GET", f'https://www.googleapis.com/books/v1/volumes?q={search_term}')
+
 
         data = response.json()
+        context = {'response': data['items'], 'list_name': 'Book World'}
 
-        context = {'response': data['items']}
+        return render(request, 'listApp/searchList.html', context)
 
-        return render(request, 'listApp/books.html', context)
+    return render(request, 'listApp/searchList.html')

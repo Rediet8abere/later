@@ -1,6 +1,6 @@
 {% load static %}
 {% block content %}
-<a href="{% url 'book-home' %}">Book List</a>
+<a href="{% url 'home' %}">Book List</a>
 <!-- Page Content -->
 <!-- <div class="container"> -->
 
@@ -187,7 +187,7 @@
 
       <body>
         <div class= "details">
-          <a class="detail-name" href="{% url 'book-home' %}">Book List</a>
+          <a class="detail-name" href="{% url 'home' %}">Home</a>
           <ul>
             <p class= "book-info">Book Title:</p>
             <h2>{{ object.book_title }}</h2>
