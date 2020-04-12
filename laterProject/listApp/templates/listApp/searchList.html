@@ -1,88 +1,112 @@
+{% extends "listApp/base.html" %}
 {% load static %}
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
+<!-- <html>
+  <head> -->
+
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+
+
+    {% block head %}
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
     <link href="{% static 'listApp/css/main.css' %}" rel="stylesheet" />
+    {% endblock %}
 
-  </head>
-  <body>
-    <div class="s130">
+  <!-- </head>
+  <body> -->
+  {% block content %}
 
-      {% if list_name %}
-        {{ list_name }}
-      {% endif %}
+  <div class="s130">
 
-      <a href="{% url 'book-list' %}"> List</a>
-      <br>
-      <a class="detail-name" href="{% url 'home' %}">Home</a>
-      <form class="search-form" action="{% url 'music' %}" method="POST">
-        {% csrf_token %}
-        <div class="inner-form">
-          <div class="input-field first-wrap">
-            <div class="svg-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-              </svg>
-            </div>
-            <input id="search" name="querystring" type="text" placeholder="What are you looking for?" />
+  {{ list_name }}
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <br>
+    {{ viewlist }}
+    <a href="{% url 'book-list'  %}"> List</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="detail-name" href="{% url 'home' %}">Home</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <form class="search-form" action="{% url 'some-url-name' as urlName  %}" method="POST">
+
+      {% csrf_token %}
+      <div class="inner-form">
+        <div class="input-field first-wrap">
+          <div class="svg-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+            </svg>
           </div>
-          <div class="input-field second-wrap">
-            <button class="btn-search" type="submit">SEARCH</button>
+          <input id="search" name="querystring" type="text" placeholder="What are you looking for?" />
+        </div>
+        <div class="input-field second-wrap">
+          <button class="btn-search" type="submit">SEARCH</button>
+        </div>
+      </div>
+      <span class="info">ex. Harry Potter, Outliners, Becoming, Lord of the ring</span>
+    </form>
+  </div>
+
+
+
+  {% if response %}
+
+
+  <div class="container">
+  <!-- Page Heading -->
+
+        <h1 class="my-4">Welcome to {{ list_name }}
+          <small>Let's read togther</small>
+        </h1>
+
+      {% for r in response %}
+      <!-- {{ r.volumeInfo.description }} -->
+      <!-- Project One -->
+        <div class="row">
+          <div class="col-md-7">
+            <a href="#">
+               <!-- r.artist.picture  -->
+              <img class="img-fluid rounded mb-3 mb-md-0" src="{{ r.volumeInfo.imageLinks.smallThumbnail }}"  alt="">
+            </a>
+          </div>
+          <div class="col-md-5">
+
+            <h3>{{ r.volumeInfo.title }}</h3>
+            <h6>{{ r.volumeInfo.description }}</h6>
+
+            <h3>{{ r.artist.name }}</h3>
+            <h3>{{ r.id }}</h3>
+            <h3> {{ r.title }}</h3>
+
+
+            <form class="test-form" action="{% url 'book-create' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="hidden" name="title" value="{{ r.volumeInfo.title }}">
+                    <input type="hidden" name="image" value="{{ r.volumeInfo.imageLinks.smallThumbnail }}">
+                    <input type="hidden" name="desc" value="{{ r.volumeInfo.description }}">
+                    <button class="btn btn-outline-info look test-link" type="submit" name="button" id='save-btn'>Add</button>
+                </div>
+            </form>
+
+            <!-- <a class="btn btn-primary" href="{% url 'book-create' %}">Add</a> -->
           </div>
         </div>
-        <span class="info">ex. Harry Potter, Outliners, Becoming, Lord of the ring</span>
-      </form>
+        <hr>
     </div>
+      {% endfor %}
 
+  {% endif %}
 
+    <script src="{% static 'listApp/js/extention/choices.js' %}"></script>
 
-    {% if response %}
-    <div class="container">
-    <!-- Page Heading -->
+  {% endblock %}
 
-          <h1 class="my-4">Welcome to Book World
-            <small>Let's read togther</small>
-          </h1>
-
-          <!-- {{ response }} -->
-        {% for r in response %}
-        <!-- Project One -->
-          <div class="row">
-            <div class="col-md-7">
-              <a href="#">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="{{ r.volumeInfo.imageLinks.smallThumbnail }}"  alt="">
-              </a>
-            </div>
-            <div class="col-md-5">
-              <h3>{{ r.volumeInfo.title }}</h3>
-              <p>{{ r.volumeInfo.description }}</p>
-
-              <form class="test-form" action="{% url 'book-create' %}" method="POST">
-                  {% csrf_token %}
-                  <div class="form-group">
-                      <input type="hidden" name="title" value="{{ r.volumeInfo.title }}">
-                      <button class="btn btn-outline-info look test-link" type="submit" name="button" id='save-btn'>Add</button>
-                  </div>
-              </form>
-
-              <!-- <a class="btn btn-primary" href="{% url 'book-create' %}">Add</a> -->
-            </div>
-          </div>
-          <hr>
-      </div>
-        {% endfor %}
-    {% else %}
-        <p>Working progress.</p>
-    {% endif %}
-
-      <script src="{% static 'listApp/js/extention/choices.js' %}"></script>
-  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
-</html>
+  <!-- </body> -->
+  <!-- This templates was made by Colorlib (https://colorlib.com) -->
+<!-- </html> -->

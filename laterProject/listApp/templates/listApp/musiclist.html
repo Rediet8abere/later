@@ -1,0 +1,67 @@
+
+{% extends "listApp/base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <a href="{% url 'home' %}">Home</a>
+    {% if musiclist %}
+        {% for music in musiclist %}
+            <div style="display:flex; flex-direction:row" class="row">
+              <div class="col-lg-4 mb-2">
+                <div class="card h-80">
+                  <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="#">Project One</a>
+                    </h4>
+                    <p class="card-text">
+                      <li><a href="/listApp/{{ book.id }}/">{{ music.artist }}</a></li>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+    {% else %}
+        <p>No music is available.</p>
+    {% endif %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% if response %}
+    <ul> -->
+      <!-- {{ response }} -->
+    <!-- {% for r in response %}
+        {{ r.artist.name }}
+        <br>
+        <img src="{{ r.artist.picture }}" alt="" width="500" height="500">
+        <br>
+        {{ r.id }}
+        {{ r.title }}
+        <a href="{{ r.preview }}"> Link </a>
+        <br> -->
+
+        <!-- <div class="tenor-gif-embed" data-postid="{{ r.id }}" data-share-method="host" data-width="500px"
+          data-aspect-ratio="1.2266666666666666">
+
+      </div> -->
+    <!-- {% endfor %}
+    </ul>
+{% else %}
+    <p>Working progress.</p>
+{% endif %} -->
