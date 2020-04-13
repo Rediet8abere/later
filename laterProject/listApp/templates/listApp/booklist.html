@@ -8,23 +8,23 @@
   body {
     background-color: rgb(250, 213, 199);
   }
-  /* a {
-	color: #0254EB
-  }
-  a:visited {
-  	color: #0254EB
-  } */
   a.morelink {
   	text-decoration:none;
   	outline: none;
   }
+
   .morecontent span {
   	display: none;
   }
   .comment {
-  	width: 400px;
-  	background-color: #f0f0f0;
+  	/* width: 400px; */
   	margin: 10px;
+  }
+
+  div.comment {
+    width: 410px;
+    height: 110px;
+    overflow: scroll;
   }
 
 
@@ -44,13 +44,13 @@
           <!-- <div class="col-lg-3 col-sm-6 col-xs-12"> -->
            <div class="col-lg-4 col-sm-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="{{ book.image }}" alt=""></a>
+                <a href="#"><img class="card-img-top" src="{{ book.image }}" width="200" height="400"></a>
                   <div class="card-body">
                     <h4 class="card-title">
                       <a href="/listApp/{{ book.id }}/">{{ book.book_title_or_author_name }}</a>
                     </h4>
                     <div class="comment more">
-                      {{ book.description }} 
+                      {{ book.description }}
                     </div>
                   </div>
               </div>
@@ -87,7 +87,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script>
       $(document).ready(function() {
-        	var showChar = 100;
+        	var showChar = 300;
         	var ellipsestext = "...";
         	var moretext = "more";
         	var lesstext = "less";
