@@ -1,3 +1,18 @@
+<!-- {% block content %}
+  <div class="content-section">
+          <form action="" method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                  <legend class="border-bottom mb-4"> Delete List </legend>
+                  <h2>deleting .....'{{ object.book_title_or_author_name }}'</h2>
+              </fieldset>
+              <div class="form-group">
+                  <button class="btn btn-outline-info" type="submit" name="button">Delete</button>
+                  <a class="btn btn-outline-info" href="{% url 'book-detail' object.id %}">Cancel</a>
+              </div>
+          </form>
+      </div>
+{% endblock %} -->
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -40,7 +55,7 @@
           left: 60px;
           top: 0px;
         }
-        
+
         h2 {
             font-size: 40px;
             position: relative;
@@ -95,7 +110,7 @@
             ball.style.transform = `scale(${Math.random()})`;
             ball.style.width = `${Math.random()}em`;
             ball.style.height = ball.style.width;
-            
+
             balls.push(ball);
             document.body.append(ball);
             }
@@ -112,7 +127,7 @@
                 { transform: `translate(${to.x}rem, ${to.y}rem)` }
                 ],
                 {
-                duration: (Math.random() + 1) * 2000, 
+                duration: (Math.random() + 1) * 2000,
                 direction: "alternate",
                 fill: "both",
                 iterations: Infinity,
@@ -123,5 +138,3 @@
         </script>
     </body>
     </html>
-
-

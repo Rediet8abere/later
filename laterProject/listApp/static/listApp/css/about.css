@@ -1,0 +1,50 @@
+body {
+    background-color:white;
+}
+
+.navbar-brand {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 200px;
+    color: red;
+    position:relative;
+    left: 60px;
+}
+
+.navbar {
+    background-color: rgb(250, 213, 199);
+    height: 500px;
+}
+
+.title {
+    position:relative;
+    left: 990px;
+    top: 400px;
+    height: 700px;
+    width: 1000px;
+    font-size: 400px;
+    color: red;
+    text-align: center;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+a.two {
+    font-size: 60px;
+    position: relative;
+    left: 1310px;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    border: solid;
+    border-color:white;
+    background-color: white;
+    justify-content: space-between;
+}
+a.two:visited {color:rgb(31, 28, 28);}
+a.two:hover {
+    text-decoration:none;
+}
+
+.ball {
+    position: absolute;
+    border-radius: 100%;
+    opacity: 0.7;
+}

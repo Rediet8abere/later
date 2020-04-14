@@ -1,3 +1,83 @@
+{% load static %}
+{% block content %}
+<a href="{% url 'home' %}">Book List</a>
+<!-- Page Content -->
+<!-- <div class="container"> -->
+
+<!-- Portfolio Item Heading -->
+<!-- <h1 class="my-4">Page Heading
+  <small>Secondary Text</small>
+</h1> -->
+
+<!-- Portfolio Item Row -->
+<!-- <div class="row">
+
+  <div class="col-md-8">
+    <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+  </div>
+
+  <div class="col-md-4">
+    <h3 class="my-3">Project Description</h3>
+    <p>
+      <ul>
+        <h2>{{ object.book_title_or_author_name }}</h2> -->
+        <!-- <h3>{{ object.list_pub_date }}</h3> -->
+      <!-- </ul>
+    </p>
+    <h3 class="my-3">Project Details</h3>
+    <ul>
+      <li>Lorem Ipsum</li>
+      <li>Dolor Sit Amet</li>
+      <li>Consectetur</li>
+      <li>Adipiscing Elit</li>
+    </ul>
+  </div>
+
+</div> -->
+<!-- /.row -->
+
+<!-- Related Projects Row -->
+<!-- <h3 class="my-4">Related Projects</h3>
+
+<div class="row">
+
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+  </div>
+
+  <div class="col-md-3 col-sm-6 mb-4">
+    <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+  </div> -->
+
+<!-- </div> -->
+<!-- /.row -->
+
+<!-- </div> -->
+<!-- /.container -->
+
+
+
+
+
+  <!-- <a href="{% url 'book-update' object.id %}">Edit</a>
+  <a href="{% url 'book-delete' object.id %}">Remove from List</a>
+{% endblock %} -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -43,7 +123,7 @@
           border-width: 1px;
         }
 
-        .detail-name:hover { 
+        .detail-name:hover {
           text-decoration: none;
         }
 
@@ -56,7 +136,7 @@
           border-width: 1px;
         }
 
-        .detail-delete:hover { 
+        .detail-delete:hover {
           text-decoration: none;
         }
 
@@ -70,7 +150,7 @@
           border-width: 1px;
         }
 
-        .detail-edit:hover { 
+        .detail-edit:hover {
           text-decoration: none;
         }
 
@@ -89,7 +169,7 @@
           left: 100px;
           color: red;
         }
-        
+
         .ball {
           position: absolute;
           border-radius: 100%;
@@ -102,12 +182,12 @@
           top: 60px;
           font-family: 'Martel', serif;
         }
-        
+
       </style>
 
       <body>
         <div class= "details">
-          <a class="detail-name" href="{% url 'book-home' %}">Book List</a>
+          <a class="detail-name" href="{% url 'home' %}">Home</a>
           <ul>
             <p class= "book-info">Book Title:</p>
             <h2>{{ object.book_title }}</h2>
@@ -135,7 +215,7 @@
           ball.style.transform = `scale(${Math.random()})`;
           ball.style.width = `${Math.random()}em`;
           ball.style.height = ball.style.width;
-          
+
           balls.push(ball);
           document.body.append(ball);
           }
@@ -152,7 +232,7 @@
               { transform: `translate(${to.x}rem, ${to.y}rem)` }
               ],
               {
-              duration: (Math.random() + 1) * 2000, 
+              duration: (Math.random() + 1) * 2000,
               direction: "alternate",
               fill: "both",
               iterations: Infinity,
@@ -163,5 +243,3 @@
       </script>
       </body>
 </html>
-
-      
