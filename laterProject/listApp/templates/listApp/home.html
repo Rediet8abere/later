@@ -1,0 +1,51 @@
+{% extends "listApp/base.html" %}
+{% load static %}
+
+{% block head %}
+{% endblock %}
+  <!-- Custom css -->
+  <!-- <link rel="stylesheet" type = "text/css" href="{% static 'listApp/css/main.css' %}"> -->
+{% block content %}
+<!-- NAV BAR -->
+<nav class="navbar">
+    <a class="navbar-brand" href="#!">Later</a>
+    <div class="group">
+        <h2 class="ml8">
+        <span class="letters-container">
+        <span class="letters letters-left"><a class= "two" href="{% url 'book-create' %}">Add Book</a></span>
+        </span>
+        <span class="circle circle-white"></span>
+        <span class="circle circle-white"></span>
+        <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    </div>
+</nav>
+
+  <div class="article-list">
+    <!-- Books -->
+    <div class="article-box">
+    <a href="{% url 'books' %}">
+    <!-- <img class="article-image" src="example.jpeg" alt="" width="150" height="150"/> -->
+    <span class="article-box-text"><span>Book World</span></span>
+    </a>
+    </div>
+
+    <!-- Music -->
+    <div class="article-box">
+    <a href="{% url 'music' %}">
+    <!-- <img class="article-image" src="example.jpeg" alt="" width="150" height="150"/> -->
+    <span class="article-box-text"><span>Music</span></span>
+    </a>
+    </div>
+
+    <!-- Podcast -->
+    <div class="article-box">
+    <a href="{% url 'books' %}">
+    <!-- <img class="article-image" src="example.jpeg" alt="" width="150" height="150"/> -->
+    <span class="article-box-text"><span>Podcast</span></span>
+    </a>
+    </div>
+
+  </div>
+
+{% endblock %}

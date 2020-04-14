@@ -4,30 +4,41 @@
 {% block head %}
 <!-- custom style -->
 <link rel="stylesheet" href="{% static 'listApp/css/create.css' %}">
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/33d47a7151.js" crossorigin="anonymous"></script>
 <title>Later - add a book!</title>
 {% endblock %}
 
 
 
 {% block content %}
-  <div class="content-section">
-          <form action="" method="POST" id="post-book">
-              <fieldset class="form-group">
-                  <legend class="border-bottom mb-4"> My Book List </legend>
-                  {{ form.as_p }}
-                  {{ field.auto_id }}
-              </fieldset>
-              <div class="form-group">
-                  <button class="btn btn-outline-info look" type="submit" name="button" id='save-btn'>Look it up!</button>
-              </div>
-          </form>
+<a class="menu-btn" href="#"><i class="fas fa-search"></i></a>
+
+  <div class="menu">
+    <div class="content-section">
+      <main>
+        <form class="test-form"  action="" method="POST" id="post-book">
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"> My Book List </legend>
+                {{ form.as_p }}
+                {{ field.auto_id }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info look test-link" type="submit" name="button" id='save-btn'>Look it up!</button>
+            </div>
+        </form>
+      </main>
+    </div>
   </div>
+
+
+
 
     <a href="{% url 'book-home' %}">Book List</a>
 
-    <span class="letters-container">
+    <!-- <span class="letters-container">
     <span class="letters letters-left"><button id='btnGiveCommand' type="button">Speak!</button></span>
-    </span>
+    </span> -->
 
     <small class="instruc">*Hold down the speak button and speak into your microphone*</small>
     <span class="circle circle-white"></span>
@@ -36,8 +47,8 @@
 
 
   <div id="results"></div>
-
-
+  <!-- custom style -->
+  <script type="text/javascript" src="{% static 'listApp/js/hum.js' %}"></script>
   <!-- ajax -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript" src="{% static 'listApp/js/books_api.js' %}"></script>

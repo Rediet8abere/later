@@ -271,3 +271,56 @@ h2.ml8 {
     width: 2.3em;
     height: 2.3em;
 }
+
+
+/* for home movie, podcast, and more */
+
+.article-list{
+  display: flex;
+  flex-direction: row;
+}
+
+.article-box
+{
+  display: flex;
+  border: 1px solid transparent;
+  box-shadow: rgba(50, 50, 50, 0.74902) 10px 5px 8px -2px;
+  background-color: purple;
+}
+.article-box:hover
+{
+
+  border: 1px solid transparent;
+  box-shadow: rgba(50, 50, 50, 0.74902) 13px 8px 18px -2px;
+}
+.article-box a
+{
+    display: inline-block;
+}
+.article-image
+{
+  padding:3px;border:thick solid black;
+  height: 200px;
+  width:200px;
+  display: inline-block;
+  float:left;
+}
+
+.article-box-text
+{
+  display: block;
+  margin: 20px;
+  height: 200px;
+  width:400px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  flex: 1;
+}
+.article-box-text span
+{
+margin: 5%;
+  font-weight: bold;
+  color: #000000;
+
+}
