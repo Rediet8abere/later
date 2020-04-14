@@ -3,35 +3,19 @@
 
 {% block head %}
 <!-- custom style -->
-<!-- <link rel="stylesheet" href="{% static 'listApp/css/booklist.css' %}"> -->
-<style>
+<link rel="stylesheet" href="{% static 'listApp/css/booklist.css' %}">
+<!-- <style>
   body {
     background-color: rgb(250, 213, 199);
   }
-  a.morelink {
-  	text-decoration:none;
-  	outline: none;
-  }
-
-  .morecontent span {
-  	display: none;
-  }
-  .comment {
-  	/* width: 400px; */
-  	margin: 10px;
-  }
-
-  div.comment {
-    width: 410px;
-    height: 110px;
-    overflow: scroll;
-  }
 
 
-</style>
+
+</style> -->
 {% endblock %}
 
 {% block content %}
+
   <!-- Page Heading -->
   <h1 class="my-4"> My to read list
     <small>A-Z</small>
@@ -85,43 +69,7 @@
         <p>No books are available.</p>
     {% endif %}
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script>
-      $(document).ready(function() {
-        	var showChar = 300;
-        	var ellipsestext = "...";
-        	var moretext = "more";
-        	var lesstext = "less";
-        	$('.more').each(function() {
-        		var content = $(this).html();
-            console.log("content: ", content);
-
-        		if(content.length > showChar) {
-
-        			var c = content.substr(0, showChar);
-        			var h = content.substr(showChar-1, content.length - showChar);
-
-        			var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
-
-        			$(this).html(html);
-        		}
-
-        	});
-
-        	$(".morelink").click(function(){
-        		if($(this).hasClass("less")) {
-        			$(this).removeClass("less");
-        			$(this).html(moretext);
-        		} else {
-        			$(this).addClass("less");
-        			$(this).html(lesstext);
-        		}
-        		$(this).parent().prev().toggle();
-        		$(this).prev().toggle();
-        		return false;
-        	});
-        });
-
-  </script>
+    <script src="{% static 'listApp/js/booklist.js' %}"></script>
 
 
 {% endblock %}

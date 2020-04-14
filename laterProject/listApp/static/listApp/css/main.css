@@ -815,7 +815,18 @@ button {
   box-sizing: border-box;
 }
 
+.link-a {
+  position: relative;
+  bottom: -200px;
+  right: 100px;
+  color: black;
+  font-size: 30px;
+}
+
+
 .s130 {
+  position:relative;
+  top:-150px;
   min-height: 100vh;
   display: -ms-flexbox;
   display: flex;
