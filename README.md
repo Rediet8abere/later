@@ -1,8 +1,5 @@
 # Later
-This application is built for the purpose of to keep track of what to:
-          * Read
-          * Listen
-          * Eat
+**Later** is an application built for the purpose of keeping track of what to Read, Listen, Eat, and more.
 during our leisure time. 
 
 ## Technologies used:
@@ -10,3 +7,4 @@ during our leisure time.
          *  HTML5 & CSS: Frontend 
          *  JSON: For chrome Extension
          *  Herkou: For production
+         *  API: Google Books API
