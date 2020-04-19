@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['127.0.0.1', 'laterproject.herokuapp.com']
 INSTALLED_APPS = [
     'rest_framework',
     'listApp.apps.ListappConfig',
-    # 'usersApp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
