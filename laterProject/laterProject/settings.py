@@ -33,13 +33,13 @@ ALLOWED_HOSTS = ['127.0.0.1', 'laterproject.herokuapp.com']
 INSTALLED_APPS = [
     'rest_framework',
     'listApp.apps.ListappConfig',
+    'userAccounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'userAccounts'
 ]
 
 MIDDLEWARE = [
