@@ -94,7 +94,7 @@
 
       <title>Later- Book</title>
 
-      <style>
+      <!-- <style>
         body {
           background-color: rgb(250, 213, 199);
         }
@@ -183,24 +183,56 @@
           font-family: 'Martel', serif;
         }
 
-      </style>
+      </style> -->
+
+      <!-- Page Content -->
+
 
       <body>
-        <div class= "details">
+
+        <div class="container">
+
+          <!-- Portfolio Item Heading -->
+          <h1 class="my-4">Page Heading
+            <small>Secondary Text</small>
+          </h1>
+
+          <!-- Portfolio Item Row -->
+          <div class="row">
+
+            <div class="col-md-8">
+              <img class="img-fluid" src="{{ object.image }}" width="400" height="50" alt="">
+            </div>
+
+            <div class="col-md-4">
+              <h3 class="my-3">Project Description</h3>
+              <p> {{ object.description }} </p>
+              <h3 class="my-3">{{ object.author_name }}</h3>
+              <ul>
+                <li><a class= "detail-edit" href="{% url 'book-update' object.id %}">Edit</a></li>
+                <li><a class= "detail-delete" href="{% url 'book-delete' object.id %}">Delete</a></li>
+                <li>Consectetur</li>
+                <li>Adipiscing Elit</li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- /.row -->
+        <!-- <div class= "details">
           <a class="detail-name" href="{% url 'home' %}">Home</a>
           <ul>
             <p class= "book-info">Book Title:</p>
             <h2>{{ object.book_title }}</h2>
             <p class= "book-info">Author's Name:</p>
-            <h3>{{ object.author_name }}</h3>
-            <h4>{{ object.list_pub_date }}</h4>
-          </ul>
-          <a class= "detail-edit" href="{% url 'book-update' object.id %}">Edit</a>
+            <h3>{{ object.author_name }}</h3> -->
+            <!-- <h4>{{ object.list_pub_date }}</h4> -->
+          <!-- </ul>
+
           <a class= "detail-delete" href="{% url 'book-delete' object.id %}">Delete</a>
-        </div>
+        </div> -->
 
         <!-- JS Background -->
-        <script>
+        <!-- <script>
           const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
 
           const numBalls = 50;
@@ -240,6 +272,6 @@
               }
           );
           });
-      </script>
+      </script> -->
       </body>
 </html>

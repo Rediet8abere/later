@@ -6,7 +6,8 @@ from django.urls import reverse
 class Books(models.Model):
     # author_name = models.CharField(max_length=30)
     # author_last_name = models.CharField(max_length=30)
-    book_title_or_author_name = models.CharField(max_length=100, default='what do you wanna read')
+    book_title = models.CharField(max_length=100, default='what do you wanna read')
+    author_name = models.CharField(max_length=100, default='who inspires you?')
     image = models.CharField(max_length=200, default='http://placehold.it/700x400')
     description = models.TextField()
     list_pub_date = models.DateTimeField(default=timezone.now)

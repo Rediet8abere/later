@@ -1,5 +1,5 @@
 body {
-   background-color: #b9ebcc !important;
+   /* background-color: #b9ebcc !important; */
 }
 
 a.morelink {
@@ -19,4 +19,9 @@ div.comment {
   width: 410px;
   height: 110px;
   overflow: scroll;
+}
+
+.nav-item {
+  position: relative;
+  left: 1000px;
 }

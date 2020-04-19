@@ -41,7 +41,7 @@ class BooksDetailView(DetailView):
 
 class BooksCreateView(CreateView):
     model = Books
-    fields = ['book_title_or_author_name']
+    fields = ['book_title']
     # template_name = 'listApp/books.html'
     # print("BooksCreateView")
 
@@ -51,7 +51,7 @@ class BooksCreateView(CreateView):
     def post(self, request):
         print("posting data to the server")
         if request.method == 'POST':
-            book = Books(book_title_or_author_name=request.POST['title'], image=request.POST['image'], description = request.POST['desc'])
+            book = Books(book_title=request.POST['title'], author_name=request.POST['author'], image=request.POST['image'], description = request.POST['desc'])
             print(request.POST['desc'])
             book.save(force_insert=True)
             return  HttpResponseRedirect("/listApp/books")
