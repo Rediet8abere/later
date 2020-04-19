@@ -1,15 +1,10 @@
-<!-- {% load static %}
+{% load static %}
 {% csrf_token %}
 
 {% block head %}
-<!-- custom style -->
 <link rel="stylesheet" href="{% static 'listApp/css/create.css' %}">
-<!-- Font Awesome -->
-<script src="https://kit.fontawesome.com/33d47a7151.js" crossorigin="anonymous"></script>
 <title>Later - add a book!</title>
 {% endblock %}
-
-
 
 {% block content %}
 <a class="menu-btn" href="#"><i class="fas fa-search"></i></a>
@@ -31,16 +26,13 @@
     </div>
   </div>
 
-
-
-
     <a href="{% url 'home' %}">Book List</a>
 
-    <!-- <span class="letters-container">
+    <span class="letters-container">
     <span class="letters letters-left"><button id='btnGiveCommand' type="button">Speak!</button></span>
-    </span> -->
+    </span>
 
-    <!-- <small class="instruc">*Hold down the speak button and speak into your microphone*</small> -->
+    <small class="instruc">*Hold down the speak button and speak into your microphone*</small>
     <span class="circle circle-white"></span>
     <span class="circle circle-white"></span>
     <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
@@ -55,4 +47,4 @@
   <script type="text/javascript" src="{% static 'listApp/js/speak.js' %}"></script>
 
 
-{% endblock %} -->
+{% endblock %}

@@ -1,5 +1,5 @@
 body {
-   /* background-color: #b9ebcc !important; */
+   background-color: #b9ebcc !important;
 }
 
 a.morelink {
@@ -12,7 +12,7 @@ a.morelink {
 }
 
 .comment {
-  /* width: 400px; */
+  width: 100px;
   margin: 10px;
 }
 

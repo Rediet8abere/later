@@ -26,17 +26,17 @@ li {
     font-family: 'Quicksand', sans-serif;
 }
 
-/* .navbar-brand {
+.navbar-brand {
     font-family: 'Berkshire Swash', cursive;
     font-size: 200px;
     color: red;
     position:relative;
     left: 60px;
-} */
+}
 
-/* .navbar {
+.navbar {
     background-color: white;
-} */
+}
 
 a.two:visited {color:rgb(31, 28, 28);}
 a.two:hover {
