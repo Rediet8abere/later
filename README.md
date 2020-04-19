@@ -1,4 +1,4 @@
-# Later [Later!](https://laterproject.herokuapp.com/)
+[Later!](https://laterproject.herokuapp.com/)
 **Later** is an application built for the purpose of keeping track of what to Read, Listen, Eat, and more.
 during our leisure time. 
 
