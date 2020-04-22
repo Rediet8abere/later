@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+         <!-- Required meta tags -->
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <!-- custom style -->
+         <link rel="stylesheet" href="{% static 'listApp/css/base.css' %}">
+ 
+        {% if title %}
+            <title> Later {{ title }}</title>
+        {% else %}
+            <title>Later</title>
+        {% endif %}
+    </head>
+    <body>
+        <main role="main" class="container">
+            <div class="col-md-8">
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+                {% block content %} {% endblock %}
+            </div>  
+        </main>
+    </body>
+</html>
