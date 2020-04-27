@@ -13,7 +13,6 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
     
-# messages.debug
-# messages.info
-# messages.warning
-# messages.error
+
+def profile(request):
+    return render(request, 'users/profile.html')
