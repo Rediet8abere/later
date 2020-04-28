@@ -1,37 +1,36 @@
 .bg-img {
-    /* The image used */
-    background-image: url("#");
-  
-    min-height: 380px;
-  
-    /* Center and scale the image nicely */
+    background-image: url("../img/back.jpeg");
+    min-height: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  
-    /* Needed to position the navbar */
     position: relative;
 }
   
-/* Position the navbar container inside the image */
 .container {
     position: absolute;
-    margin: 20px;
+    margin: 40px;
     width: auto;
 }
   
- 
 .navbar-brand {
     font-family: 'Berkshire Swash', cursive;
     font-size: 90px;
-    color: rgb(255, 0, 0);
+    color:rgb(255, 0, 0);
     text-decoration: none;
-    position: relative;
-    left: 20px;
 }
 
-.navbar {
-    background-color: rgb(255, 85, 23);
+.button {
+    background-color: rgb(255, 77, 0);
+    color: white;
+    border: none;
+    padding: 25px 42px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50px;
+    position: relative;
+    left: 900px;
 }
 
 /* for home movie, podcast, and more */

@@ -1,7 +1,6 @@
 from django.urls import path, include
 from .views import (
     HomePageView,
-    AboutView,
     HomeView,
     BooksListView,
     BooksDetailView,
@@ -25,5 +24,4 @@ urlpatterns = [
     path('listApp/<int:pk>/delete', BooksDeleteView.as_view(), name='book-delete'),
     path('listApp/music/', views.music_api_view, name='music'),
     path('listApp/books/', views.book_api_view, name='books'),
-    path('about/', AboutView.as_view(), name='listApp-about'),
 ]
