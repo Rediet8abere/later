@@ -20,14 +20,14 @@ from django.urls import reverse
 # from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
+
+class AboutView(TemplateView):
+    # template_name = "listApp/home.html"
+    template_name = "listApp/about.html"
+
 class HomeView(TemplateView):
     template_name = "listApp/home.html"
-# def home(request):
-#     context = {
-#         'books': Books.objects.all(),
-#         'music': Musics.objects.all()
-#     }
-#     return render(request, 'listApp/home.html', context)
+    # template_name = "listApp/about.html"
 
 class BooksListView(ListView):
     # print("BooksListView")
@@ -36,7 +36,6 @@ class BooksListView(ListView):
     context_object_name = 'booklist'
     ordering = ['-list_pub_date']
     paginate_by = 6
-
 
 class MusicListView(ListView):
     # print("MusicListView")
