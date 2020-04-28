@@ -1,4 +1,4 @@
-/* body {
+body {
     background-color: rgb(250, 213, 199);
 }
 
@@ -7,9 +7,9 @@
     left: -200px;
     font-family: 'Quicksand', sans-serif;
     padding: 0px;
-} */
+}
 
-/* p {
+p {
     font-family: 'Merriweather', serif;
     font-size: 70px;
     position: relative;
@@ -17,9 +17,9 @@
     top: 140px;
     color:white;
     text-shadow: 2px 2px red;
-} */
+}
 
-/* li {
+li {
     position: relative;
     top: 10px;
     color: white;

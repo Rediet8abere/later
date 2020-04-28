@@ -8,66 +8,49 @@
         <!-- custom style -->
         <link rel="stylesheet" href="{% static 'listApp/css/base.css' %}">
 
-        {% block head %}
-        {% endblock %}
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Oswald:wght@700&display=swap" rel="stylesheet">
-        <title>Later</title>
+
+            <title>Later</title>
     </head>
     <body>
         <!-- NAV BAR -->
         <nav class="navbar">
-            <a class="navbar-brand" href="#!">Later</a>
-            <div class="group">
-                <h2 class="ml8">
-                <span class="letters-container">
-                <span class="letters letters-left"><a class= "two" href="{% url 'book-create' %}">Add Book</a></span>
-                </span>
-                <span class="circle circle-white"></span>
-                <span class="circle circle-white"></span>
-                <span class="circle circle-container"><span class="circle circle-dark-dashed"></span></span>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+            <a class="navbar-brand" href="">Later</a>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="{% url 'listApp-about' %}">About</a>
+                 </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'post-create' %}">Write a New Post</a>
+                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+                    {% endif %}
+                </div>
             </div>
         </nav>
-
-        <!-- <div class="gallery">
-            <div class="gallery-container">
-                <img class="gallery-item" src="2.jpg">
-                <img class="gallery-item" src="3.jpg">
-                <img class="gallery-item" src="4.jpg">
-                <img class="gallery-item" src="5.jpg">
+        <main role="main" class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    {% block content %}{% endblock %}
+                </div>
             </div>
-            <div class="gallery-controls"></div>
-        </div> -->
-
-        {% block content %}
-        {% endblock %}
-
-
-        <!-- Gallery of Books-->
-        <p> Your saved items: </p>
-        <div class="gallery">
-            <div class="gallery-container">
-                    {% if booklist %}
-                    {% for book in booklist %}
-                    <div class="gallery-item">
-                            <li><a href="/listApp/{{ book.id }}/">{{ book.book_title }}</a></li>
-                    </div>
-                    <img class="gallery-item" src="2.jpg">
-                    <img class="gallery-item" src="3.jpg">
-                    <img class="gallery-item" src="4.jpg">
-                    <img class="gallery-item" src="5.jpg">
-                    {% endfor %}
-                {% else %}
-                        <p>No books are available.</p>
-                {% endif %}
-            </div>
-            <div class="gallery-controls"></div>
-        </div>
-
+        </main>
     <!-- custom script -->
     <script src="{% static 'listApp/js/base.js' %}"></script>
 </body>

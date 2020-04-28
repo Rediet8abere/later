@@ -1,3 +1,6 @@
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from django.views.generic import (
     ListView,
     DetailView,
@@ -19,6 +22,12 @@ from django.http import JsonResponse
 
 class HomeView(TemplateView):
     template_name = "listApp/home.html"
+# def home(request):
+#     context = {
+#         'books': Books.objects.all(),
+#         'music': Musics.objects.all()
+#     }
+#     return render(request, 'listApp/home.html', context)
 
 class BooksListView(ListView):
     # print("BooksListView")
@@ -46,6 +55,7 @@ class BooksCreateView(CreateView):
     # print("BooksCreateView")
 
     def form_vaild(self, form):
+        form.instance.author = self.request.user
         return super().form_vaild(form)
 
     def post(self, request):
@@ -59,7 +69,6 @@ class BooksCreateView(CreateView):
             # context = {'response': data["data"]}
             # return render(request, 'listApp/index.html', {'booklist': book})
 
-
 class MusicCreateView(CreateView):
     model = Musics
     fields = ['artist']
@@ -67,6 +76,7 @@ class MusicCreateView(CreateView):
     # print("MusicCreateView")
 
     def form_vaild(self, form):
+        form.instance.author = self.request.user
         return super().form_vaild(form)
 
     def post(self, request):
@@ -80,19 +90,17 @@ class MusicCreateView(CreateView):
             # context = {'response': data["data"]}
             # return render(request, 'listApp/index.html', {'booklist': book})
 
-
 class BooksUpdateView(UpdateView):
     model = Books
     fields = ['book_title_or_author_name']
 
     def form_vaild(self, form):
+        form.instance.author = self.request.user
         return super().form_vaild(form)
 
 class BooksDeleteView(DeleteView):
     model = Books
     success_url = '/'
-
-
 
 
 def music_api_view(request):
@@ -142,3 +150,6 @@ def book_api_view(request):
         return render(request, 'listApp/searchList.html', context)
 
     # return render(request, 'listApp/searchList.html')
+
+def about(request):
+    return render(request, 'listApp/about.html', {'title': 'About'})
