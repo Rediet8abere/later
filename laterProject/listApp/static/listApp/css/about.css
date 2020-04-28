@@ -4,14 +4,13 @@ body {
 
 .navbar-brand {
     font-family: 'Berkshire Swash', cursive;
-    font-size: 200px;
-    color: red;
+    font-size: 20px;
     position:relative;
     left: 60px;
 }
 
 .navbar {
-    background-color: rgb(250, 213, 199);
+    background-color: whitesmoke;
     height: 500px;
 }
 
@@ -21,7 +20,7 @@ body {
     top: 400px;
     height: 700px;
     width: 1000px;
-    font-size: 400px;
+    font-size: 40px;
     color: red;
     text-align: center;
     font-family: 'Berkshire Swash', cursive;

@@ -21,9 +21,13 @@ from django.urls import reverse
 from django.http import JsonResponse
 
 
-class AboutView(TemplateView):
+class HomePageView(TemplateView):
     # template_name = "listApp/home.html"
-    template_name = "listApp/about.html"
+    template_name = "listApp/homepage.html"
+
+# class AboutView(TemplateView):
+#     # template_name = "listApp/home.html"
+#     template_name = "listApp/about.html"
 
 class HomeView(TemplateView):
     template_name = "listApp/home.html"
